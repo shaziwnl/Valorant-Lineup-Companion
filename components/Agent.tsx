@@ -45,10 +45,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
+        fontFamily: 'Valorant',
+        paddingTop: 10,
+        textShadowColor: 'white',
+        // textShadowColor: 'rgba(0, 0, 0, 1)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 25,
     },
 
     image: {
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 300,
     }
 });
