@@ -1,15 +1,23 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React, { useEffect } from 'react'
+import React from 'react'
+import { Video, ResizeMode } from 'expo-av';
 import { useLocalSearchParams } from 'expo-router';
 
 export default function Lineups() {
-
-    const { map, agent } = useLocalSearchParams();
+    const { map, agent, utility } = useLocalSearchParams();
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{agent} on {map}</Text>
         </View>
+        // <Video
+        //     source={{ uri: `https://d18zy66lz0kl5m.cloudfront.net/PC%20Anime%20Japanese%20Sunset%20Live%20Wallpaper.mp4` }}
+        //     style={styles.video}
+        //     resizeMode={ResizeMode.COVER}
+        //     shouldPlay
+        //     isLooping
+        //     useNativeControls
+        // />
     )
 }
 
@@ -30,4 +38,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
+
+    video: {
+        width: 200,
+        height: 200,
+    }
 })

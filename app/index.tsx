@@ -23,7 +23,8 @@ export default function TabOneScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 30,
   },
-  
+
   title: {
     fontSize: 20,
     fontWeight: 'bold',

@@ -23,7 +23,7 @@ export default function AgentSelect() {
             <ScrollView>
                 <View style={styles.container}>
                 {AgentList.map((agentName) => (
-                    <Link key={agentName} href={`/lineups/${map}/${agentName}`}>
+                    <Link key={agentName} href={`/util-select/${map}/${agentName}`}>
                         <Agent name={agentName}/>
                     </Link>
                 ))}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         // backgroundColor: 'transparent',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.75)',
     },
     
 })
