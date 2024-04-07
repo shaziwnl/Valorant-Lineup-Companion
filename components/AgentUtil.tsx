@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { Link } from 'expo-router';
 import agentImages from '@/utils/agentList';
 import mapImages from '@/utils/mapList';
 import agentUtilityList from '@/utils/agentUtilityList';
@@ -22,15 +23,17 @@ export default function AgentUtil(props: any) {
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'
                     const abilityName = filename.split(".")[0]; // Get the part before the extension by splitting by '.'
                     return (
-                        <View key={index} style={styles.utilityWrapper}>
-                            <Image style={styles.utilImage} source={utility[0]} />
-                            <Text style={[styles.title, styles.title2]}>{abilityName.toUpperCase()}</Text>
-                        </View>
+                        <Link key={index} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
+                            <View key={index} style={styles.utilityWrapper}>
+                                <Image style={styles.utilImage} source={utility[0]} />
+                                <Text style={[styles.title, styles.title2]}>{abilityName.toUpperCase()}</Text>
+                            </View>
+                        </Link>
                     )
                 })}
             </View>
 
-        </ ImageBackground>  
+        </ImageBackground>  
     );
 };
 
@@ -42,13 +45,14 @@ const styles = StyleSheet.create({
     },
 
     utilityWrapper: {
+        paddingHorizontal: 20,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        gap: 40,
     },
 
     title2: {
-        fontSize: 40,
+        fontSize: 35,
         fontFamily: 'Valorant',
         fontWeight: "600",
     },
