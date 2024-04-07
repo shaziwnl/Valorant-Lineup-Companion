@@ -17,8 +17,7 @@ const Videos: React.FC = () => {
     });
 
     let arr = ["LotusASiteBreachFlashPoint1", "LotusCSiteBreachFlashPoint1", "LotusBSiteBreachFlashPoint1",
-    "Lotus Middle Breach FlashPoint 1",
-    ]
+    "Lotus Middle Breach FlashPoint 1", "LotusASiteBreachFlashPoint2", "LotusCSiteBreachFlashPoint2",]
     
     arr = arr.filter((string) => {
         return (string.toLowerCase().includes((utility as string).toLowerCase())
