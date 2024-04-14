@@ -1,6 +1,6 @@
-import { Link } from 'expo-router';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import agentImages from '@/utils/agentList';
+import { vw, vh } from '@/utils/dimensions'
 
 export default function Map(props: any) {
 
@@ -15,20 +15,19 @@ export default function Map(props: any) {
 const styles = StyleSheet.create({
     
     title: {
-        fontSize: 20,
+        fontSize: vh * 0.025,
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
         fontFamily: 'Valorant',
-        paddingTop: 10,
+        paddingTop: vh * 0.015,
         textShadowColor: 'white',
-        // textShadowColor: 'rgba(0, 0, 0, 1)',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 25,
     },
 
     image: {
-        width: 150,
-        height: 300,
+        width: vw * 0.38,
+        height: vh * 0.35,
     }
 });

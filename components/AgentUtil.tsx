@@ -3,10 +3,9 @@ import { Link } from 'expo-router';
 import agentImages from '@/utils/agentList';
 import mapImages from '@/utils/mapList';
 import agentUtilityList from '@/utils/agentUtilityList';
+import {vh, vw} from '@/utils/dimensions';
 
 export default function AgentUtil(props: any) {
-
-    
 
     return (
         <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
@@ -26,7 +25,7 @@ export default function AgentUtil(props: any) {
                         <Link key={index} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
                             <View key={index} style={styles.utilityWrapper}>
                                 <Image style={styles.utilImage} source={utility[0]} />
-                                <Text style={[styles.title, styles.title2]}>{abilityName.toUpperCase()}</Text>
+                                <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
                             </View>
                         </Link>
                     )
@@ -40,26 +39,21 @@ export default function AgentUtil(props: any) {
 const styles = StyleSheet.create({
 
     utilImage: {
-        width: 60,
-        height: 60,
+        width: vw * 0.15,
+        height: vh * 0.075,
     },
 
     utilityWrapper: {
-        paddingHorizontal: 20,
+        paddingHorizontal: vh * 0.02,
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 40,
-    },
-
-    title2: {
-        fontSize: 35,
-        fontFamily: 'Valorant',
-        fontWeight: "600",
+        gap: vh * 0.05,
     },
 
     title: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: vh * 0.0375,
+        fontFamily: 'Valorant',
+        fontWeight: "600",
         color: 'white',
         textAlign: 'center',
     },
@@ -67,7 +61,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 3,
         flexWrap: 'wrap',
-        gap: 15,
+        gap: vw * 0.03,
         flexDirection: 'row',
         borderBottomWidth: 2,
         borderColor: 'white',
@@ -77,20 +71,21 @@ const styles = StyleSheet.create({
     },
 
     container2: {
-        paddingTop: 25,
+        paddingTop: vh * 0.04,
         flex: 7,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        gap: 50,
+        gap: vh * 0.05,
     },
 
     agentImage: {
-        width: 100,
-        height: 200,
+        width: vw * 0.25,
+        height: vh * 0.25,
     },
 
     mapImage: {
-        width: 250,
-        height: 175,
+        // width: 250,
+        width: vw * 0.65,
+        height: vh * 0.2,
         borderRadius: 20,
         borderColor: 'white',
         borderWidth: 2,

@@ -1,8 +1,10 @@
 import { Link } from 'expo-router';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import mapImages from '@/utils/mapList';
+import { vw, vh } from '@/utils/dimensions'
 
 export default function Map(props: any) {
+        
 
     return (
         <Link href={`/agent-select/${props.name}`}>
@@ -18,20 +20,19 @@ const styles = StyleSheet.create({
     
     title: {
         fontFamily: 'Valorant',
-        marginTop: 10,
-        fontSize: 20,
+        marginTop: vh * 0.01,
+        fontSize: vh * 0.025,
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
         textShadowColor: 'white',
-        // textShadowColor: 'rgba(0, 0, 0, 1)',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 25,
-
     },
 
     image: {
-        width: 300,
-        height: 150,
+        width: vw * 0.77,
+        // width: 300,
+        height: vh * 0.18,
     }
 });

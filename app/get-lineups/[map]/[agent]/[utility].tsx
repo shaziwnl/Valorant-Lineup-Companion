@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
+import { ResizeMode, Video } from 'expo-av';
+import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
 import React from 'react';
 
@@ -34,11 +36,9 @@ const Videos: React.FC = () => {
 
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
-            <ScrollView >
-
-                <View style={styles.container}>
-                    <Text style={styles.text}>{utility} Lineups on {map}</Text>
-                </View>
+            
+            <View style={styles.container}>
+                <Text style={styles.text}>{utility} Lineups on {map}</Text>
             
                 <View style={styles.checkboxesContainer}>
                     <Checkbox text="A Site" filters={filters} setFilters={setFilters} property="aSite" />
@@ -48,54 +48,88 @@ const Videos: React.FC = () => {
                     <Checkbox text="Attack" filters={filters} setFilters={setFilters} property="attack" />
                     <Checkbox text="Defense" filters={filters} setFilters={setFilters} property="defense" />
                 </View>
+            </View>
 
-                <View>
-                    {/* {arr.map((video, index) => {
-                        return (
-                            <Text style={styles.text2}>{arr.length}</Text>
-                        )
-                    })} */}
-                    <Text style={styles.text2}>{JSON.stringify(arr)}</Text>
-                </View>
+            <ScrollView>
+                {/* <Text style={styles.text2}>{JSON.stringify(arr)}</Text> */}
 
+                <Text style={styles.videoTitle}>A Site Entrance</Text>
+                <Video
+                    style={styles.video}
+                    source={{
+                    uri: `${process.env.EXPO_PUBLIC_AWS_URL}/PC Anime Japanese Sunset Live Wallpaper.mp4`,
+                    }}
+                    positionMillis={1000}
+                    useNativeControls
+                    resizeMode={ResizeMode.COVER}
+                    isLooping
+                />  
+
+                {arr.map((item, index) => {
+                    return <Text key={index} style={styles.text2}>{item}</Text>
+                })}
+            
             </ScrollView>
+                
         </ImageBackground>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+
+    videoWrapper: {
         alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    container: {
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
         borderBottomColor: 'white',
-        borderTopColor: 'white',
         borderBottomWidth: 2,
+        borderTopColor: 'white',
         borderTopWidth: 2,
-        height: 50,
     },
+
     text: {
-        marginTop: 10,
-        fontSize: 20,
+        marginTop: vh * 0.02,
+        fontSize: vh * 0.025,
         fontWeight: 'bold',
-        color: 'white'
+        color: 'white',
+        alignSelf: 'center',
     },
+
+    videoTitle: {
+        marginTop: vh * 0.03  ,
+        marginBottom: vh * 0.005,
+        fontSize: vh * 0.025,
+        fontWeight: 'bold',
+        color: 'white',
+        alignSelf: 'center',
+    },
+
     text2: {
         fontSize: 15,
         fontWeight: 'bold',
         color: 'white'
     },
+
     checkboxesContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 10,
-        borderBottomColor: 'white',
-        borderBottomWidth: 2,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        padding: 10,
-    }
+        gap: vw * 0.03,
+        padding: vw * 0.025,
+    },
+
+    video: {
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: 'white',
+        width: vw * 0.8,
+        height: vh * 0.25,
+    },
+
 });
 
 export default Videos;

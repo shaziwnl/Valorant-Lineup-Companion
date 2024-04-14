@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import Agent from '@/components/Agent';
 import { Link, useLocalSearchParams } from 'expo-router';
+import { vh, vw } from '@/utils/dimensions';
 
 export default function AgentSelect() {
     
@@ -34,22 +35,14 @@ export default function AgentSelect() {
 };
 
 const styles = StyleSheet.create({
-    
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
-        textAlign: 'center',
-    },
 
     container: {
         flex: 1,
-        paddingVertical: 20,
+        paddingVertical: vh * 0.025,
         flexWrap: 'wrap',
-        gap: 20,
+        gap: vh * 0.04,
         flexDirection: 'row',
         justifyContent: 'center',
-        // backgroundColor: 'transparent',
         backgroundColor: 'rgba(0, 0, 0, 0.75)',
     },
     

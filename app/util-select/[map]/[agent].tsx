@@ -13,22 +13,3 @@ function Agent() {
 }
 
 export default Agent
-
-const styles = StyleSheet.create({
-        
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
-        textAlign: 'center',
-    },
-    
-    container: {
-        flex: 1,
-        paddingVertical: 20,
-        flexWrap: 'wrap',
-        gap: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-})
