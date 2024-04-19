@@ -1,34 +1,8 @@
-import { Link } from 'expo-router';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import agentImages from '@/utils/agentList';
+import { vw, vh } from '@/utils/dimensions'
 
 export default function Map(props: any) {
-
-    const agentImages: any = {
-        Astra: require('../assets/images/agents/Astra.png'),
-        Brimstone: require('../assets/images/agents/Brimstone.png'),
-        Clove: require('../assets/images/agents/Clove.png'),
-        Harbor: require('../assets/images/agents/Harbor.png'),
-        Iso: require('../assets/images/agents/Iso.png'),
-        Jett: require('../assets/images/agents/Jett.png'),
-        Omen: require('../assets/images/agents/Omen.png'),
-        Viper: require('../assets/images/agents/Viper.png'),
-        Yoru: require('../assets/images/agents/Yoru.png'),
-        Sage: require('../assets/images/agents/Sage.png'),
-        Skye: require('../assets/images/agents/Skye.png'),
-        Sova: require('../assets/images/agents/Sova.png'),
-        Breach: require('../assets/images/agents/Breach.png'),
-        Deadlock: require('../assets/images/agents/Deadlock.png'),
-        Chamber: require('../assets/images/agents/Chamber.png'),
-        Gekko: require('../assets/images/agents/Gekko.png'),
-        Kayo: require('../assets/images/agents/Kayo.png'),
-        Neon: require('../assets/images/agents/Neon.png'),
-        Phoenix: require('../assets/images/agents/Phoenix.png'),
-        Raze: require('../assets/images/agents/Raze.png'),
-        Reyna: require('../assets/images/agents/Reyna.png'),
-        Fade: require('../assets/images/agents/Fade.png'),
-        Cypher: require('../assets/images/agents/Cypher.png'),
-        Killjoy: require('../assets/images/agents/Killjoy.png'),
-    }
 
     return (
         <View>
@@ -41,14 +15,19 @@ export default function Map(props: any) {
 const styles = StyleSheet.create({
     
     title: {
-        fontSize: 20,
+        fontSize: vh * 0.025,
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
+        fontFamily: 'Valorant',
+        paddingTop: vh * 0.015,
+        textShadowColor: 'white',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 25,
     },
 
     image: {
-        width: 100,
-        height: 100,
+        width: vw * 0.38,
+        height: vh * 0.35,
     }
 });
