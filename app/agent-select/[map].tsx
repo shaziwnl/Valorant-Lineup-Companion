@@ -21,28 +21,35 @@ export default function AgentSelect() {
 
     return (
         <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
-            <ScrollView>
-                <View style={styles.container}>
-                {AgentList.map((agentName) => (
-                    <Link key={agentName} href={`/util-select/${map}/${agentName}`}>
-                        <Agent name={agentName}/>
-                    </Link>
-                ))}
-                </View>
-            </ScrollView>
+            <View style={styles.container1}>
+                <ScrollView>
+                    <View style={styles.container2}>
+                    {AgentList.map((agentName) => (
+                        <Link key={agentName} href={`/util-select/${map}/${agentName}`}>
+                            <Agent name={agentName}/>
+                        </Link>
+                    ))}
+                    </View>
+                </ScrollView>
+            </View>
         </ImageBackground>
     );
 };
 
 const styles = StyleSheet.create({
 
-    container: {
+    container2: {
         flex: 1,
         paddingVertical: vh * 0.025,
         flexWrap: 'wrap',
         gap: vh * 0.04,
         flexDirection: 'row',
         justifyContent: 'center',
+        // backgroundColor: 'rgba(0, 0, 0, 0.75)',
+        backgroundColor: 'transparent',
+    },
+
+    container1: {
         backgroundColor: 'rgba(0, 0, 0, 0.75)',
     },
     

@@ -9,27 +9,33 @@ const MapList = ['Ascent', 'Bind', 'Lotus', 'Breeze', 'Split', 'Haven', 'Fractur
 export default function TabOneScreen() {
 
   return (
-    <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
-      <ScrollView>
-        <View style={styles.container}>
-          {MapList.map((mapName) => (
-            <Map key={mapName} name={mapName}/>
-          ))}
-        </View>
-      </ScrollView>
+    <ImageBackground source={image} style={{width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)'}}>
+      <View style={styles.container1}>
+        <ScrollView>
+          <View style={styles.container2}>
+            {MapList.map((mapName) => (
+              <Map key={mapName} name={mapName}/>
+            ))}
+          </View>
+        </ScrollView>
+      </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  container2: {
+    backgroundColor: 'transparent',
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: vh * 0.05,
     justifyContent: 'center',
     paddingVertical: vh * 0.05,
+  },
+
+  container1: {
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
 
 });
