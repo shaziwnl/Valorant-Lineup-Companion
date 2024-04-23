@@ -1,5 +1,10 @@
-const perMap: any = {
-  Acsent: {
+const videoLinks: any = {
+  // Make sure to have names with the following format
+  // Agentname Map Utility PlaceOnMap Attack/Defence 
+  // eg: Kayo Ascent Flashdrive ASite Attack
+  // eg: Kayo Ascent Flashdrive ASite Heaven Attack
+  // we only want to keep - "A Site Heaven Attack" or "A Site Attack"
+  Ascent: {
     Astra : [],
     Brimstone : [],
     Clove : [],
@@ -15,7 +20,8 @@ const perMap: any = {
     Deadlock : [],
     Chamber : [],
     Gekko : [],
-    Kayo : [],
+    Kayo : ["Kayo Ascent Flashdrive BSite Lane Attack", "Kayo Ascent Flashdrive ASite A Main Attack",
+            "Kayo Ascent Flashdrive ASite Attack"],
     Neon : [],
     Pheonix : [],
     Raze : [],
@@ -234,4 +240,4 @@ const perMap: any = {
   },
 }
 
-export default perMap;
+export default videoLinks;

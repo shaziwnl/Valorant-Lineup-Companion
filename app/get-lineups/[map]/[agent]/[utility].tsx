@@ -4,6 +4,7 @@ import { ResizeMode, Video } from 'expo-av';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
 import React from 'react';
+import videoLinks from '@/utils/links';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
@@ -18,21 +19,14 @@ const Videos: React.FC = () => {
         defense: true
     });
 
-    let arr = ["LotusASiteBreachFlashPoint1", "LotusCSiteBreachFlashPoint1", "LotusBSiteBreachFlashPoint1",
-    "Lotus Middle Breach FlashPoint 1", "LotusASiteBreachFlashPoint2", "LotusCSiteBreachFlashPoint2",]
-    
-    arr = arr.filter((string) => {
-        return (string.toLowerCase().includes((utility as string).toLowerCase())
-               && string.toLowerCase().includes((map as string).toLowerCase())
-               && string.toLowerCase().includes((agent as string).toLowerCase()))
-    })
+    let arr = videoLinks[map as string][agent as string];
 
-    if (!filters.aSite) { arr = arr.filter((string) => !string.toLowerCase().includes("asite")) }
-    if (!filters.bSite) { arr = arr.filter((string) => !string.toLowerCase().includes("bsite")) }
-    if (!filters.cSite) { arr = arr.filter((string) => !string.toLowerCase().includes("csite")) }
-    if (!filters.middle) { arr = arr.filter((string) => !string.toLowerCase().includes("middle")) }
-    if (!filters.attack) { arr = arr.filter((string) => !string.toLowerCase().includes("attack")) }
-    if (!filters.defense) { arr = arr.filter((string) => !string.toLowerCase().includes("defense")) }
+    if (!filters.aSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("asite")) }
+    if (!filters.bSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("bsite")) }
+    if (!filters.cSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("csite")) }
+    if (!filters.middle) { arr = arr.filter((string: string) => !string.toLowerCase().includes("middle")) }
+    if (!filters.attack) { arr = arr.filter((string: string) => !string.toLowerCase().includes("attack")) }
+    if (!filters.defense) { arr = arr.filter((string: string) => !string.toLowerCase().includes("defense")) }
 
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
@@ -51,9 +45,8 @@ const Videos: React.FC = () => {
             </View>
 
             <ScrollView>
-                {/* <Text style={styles.text2}>{JSON.stringify(arr)}</Text> */}
-
-                <Text style={styles.videoTitle}>A Site Entrance</Text>
+            
+                {/* <Text style={styles.videoTitle}>A Site Entrance</Text>
                 <Video
                     style={styles.video}
                     source={{
@@ -63,11 +56,29 @@ const Videos: React.FC = () => {
                     useNativeControls
                     resizeMode={ResizeMode.COVER}
                     isLooping
-                />  
+                />   */}
 
-                {arr.map((item, index) => {
-                    return <Text key={index} style={styles.text2}>{item}</Text>
+                {arr.map((item: any, index: any) => {
+                    return (
+                        <View key={index} style={styles.videoWrapper}>
+                            <Text style={styles.videoTitle}>{item}</Text>
+                            <Video
+                                style={styles.video}
+                                source={{
+                                uri: `${process.env.EXPO_PUBLIC_AWS_URL}/${item}.mp4`,
+                                }}
+                                positionMillis={1000}
+                                useNativeControls
+                                resizeMode={ResizeMode.COVER}
+                                isLooping
+                            />
+                        </View>
+                    )
                 })}
+
+                {/* {arr.map((item: any, index: any) => {
+                    return <Text key={index} style={styles.text2}>{item}</Text>
+                })} */}
             
             </ScrollView>
                 
@@ -78,8 +89,7 @@ const Videos: React.FC = () => {
 const styles = StyleSheet.create({
 
     videoWrapper: {
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginBottom: vh * 0.03,
     },
 
     container: {
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
     videoTitle: {
         marginTop: vh * 0.03  ,
         marginBottom: vh * 0.005,
-        fontSize: vh * 0.025,
+        fontSize: vh * 0.020,
         fontWeight: 'bold',
         color: 'white',
         alignSelf: 'center',
@@ -126,7 +136,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderWidth: 1,
         borderColor: 'white',
-        width: vw * 0.8,
+        width: vw * 0.9,
         height: vh * 0.25,
     },
 
