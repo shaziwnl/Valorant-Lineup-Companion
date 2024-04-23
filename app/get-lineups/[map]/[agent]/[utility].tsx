@@ -17,17 +17,17 @@ const Videos: React.FC = () => {
         cSite: false,
         middle: false,
         attack: true,
-        defense: true
+        defense: false
     });
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string])
-        if (!filters.aSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("asite"))) }
-        if (!filters.bSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("bsite"))) }
-        if (!filters.cSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("csite"))) }
-        if (!filters.middle) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("middle"))) }
-        if (!filters.attack) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("attack"))) }
-        if (!filters.defense) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("defense"))) }
+        if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("asite"))) }
+        if (!filters.bSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("bsite"))) }
+        if (!filters.cSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("csite"))) }
+        if (!filters.middle) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("middle"))) }
+        if (!filters.attack) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("attack"))) }
+        if (!filters.defense) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("defense"))) }
     }, [filters])
     
     return (
@@ -50,7 +50,7 @@ const Videos: React.FC = () => {
         
                 {arr.map((item: any) => {
                     return (
-                        <SingleVideo key={item} item={item}/>
+                        <SingleVideo key={item.title} title={item.title} videoId={item.id}/>
                     )
                 })}
             

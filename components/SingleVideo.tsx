@@ -4,10 +4,10 @@ import { View, Text, StyleSheet } from 'react-native'
 import {vh, vw} from '@/utils/dimensions'
 import YoutubeIframe from 'react-native-youtube-iframe'
 
-function SingleVideo({item}: any) {
+function SingleVideo({title, videoId}: {title: string, videoId: string}) {
   return (
-    <View key={item} style={styles.videoWrapper}>
-        <Text style={styles.videoTitle}>{item}</Text>
+    <View key={title} style={styles.videoWrapper}>
+        <Text style={styles.videoTitle}>{title}</Text>
         {/* <Video
             style={styles.video}
             source={{
@@ -22,7 +22,7 @@ function SingleVideo({item}: any) {
             <YoutubeIframe
                 height={vh * 0.25}
                 width={vw * 0.9}
-                videoId='ixsyw_XWQr0'
+                videoId={videoId}
             />
         </View>
     </View>
