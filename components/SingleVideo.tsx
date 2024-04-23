@@ -44,19 +44,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
 
-    video: {
-        alignSelf: 'center',
-        borderWidth: 1,
-        borderColor: 'white',
-        width: vw * 0.9,
-        height: vh * 0.25,
-    },
-
     ytvideo: {
         alignSelf: 'center',
         borderWidth: 1,
         borderColor: 'white',
-        height: vh * 0.24,
+        height: vh * 0.237,
     },
 
 });

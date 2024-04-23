@@ -52,7 +52,7 @@ const Videos: React.FC = () => {
                     const words = item.title.split(" ");
                     const title = words.slice(3).join(" ");
                     return (
-                        <SingleVideo key={item.title} title={title} videoId={item.id}/>
+                        <SingleVideo key={item.id} title={title} videoId={item.id}/>
                     )
                 })}
             
