@@ -1,9 +1,8 @@
 import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { ResizeMode, Video } from 'expo-av';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
-import React, { memo, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 
@@ -48,28 +47,12 @@ const Videos: React.FC = () => {
             </View>
 
             <ScrollView>
-            
-                {/* <Text style={styles.videoTitle}>A Site Entrance</Text>
-                <Video
-                    style={styles.video}
-                    source={{
-                    uri: `${process.env.EXPO_PUBLIC_AWS_URL}/PC Anime Japanese Sunset Live Wallpaper.mp4`,
-                    }}
-                    positionMillis={1000}
-                    useNativeControls
-                    resizeMode={ResizeMode.COVER}
-                    isLooping
-                />   */}
-
+        
                 {arr.map((item: any) => {
                     return (
                         <SingleVideo key={item} item={item}/>
                     )
                 })}
-
-                {/* {arr.map((item: any, index: any) => {
-                    return <Text key={index} style={styles.text2}>{item}</Text>
-                })} */}
             
             </ScrollView>
                 
@@ -78,10 +61,6 @@ const Videos: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-
-    videoWrapper: {
-        marginBottom: vh * 0.03,
-    },
 
     container: {
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
@@ -99,21 +78,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
 
-    videoTitle: {
-        marginTop: vh * 0.03  ,
-        marginBottom: vh * 0.005,
-        fontSize: vh * 0.020,
-        fontWeight: 'bold',
-        color: 'white',
-        alignSelf: 'center',
-    },
-
-    text2: {
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: 'white'
-    },
-
     checkboxesContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -121,14 +85,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: vw * 0.03,
         padding: vw * 0.025,
-    },
-
-    video: {
-        alignSelf: 'center',
-        borderWidth: 1,
-        borderColor: 'white',
-        width: vw * 0.9,
-        height: vh * 0.25,
     },
 
 });
