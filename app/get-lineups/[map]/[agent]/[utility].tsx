@@ -3,31 +3,34 @@ import { useLocalSearchParams } from 'expo-router';
 import { ResizeMode, Video } from 'expo-av';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
-import React from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
+import SingleVideo from '@/components/SingleVideo';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
     const { map, agent, utility } = useLocalSearchParams();
+    const [arr, setArr] = useState(videoLinks[map as string][agent as string])
 
-    const [filters, setFilters] = React.useState({
+    const [filters, setFilters] = useState({
         aSite: true,
-        bSite: true,
-        cSite: true,
-        middle: true,
+        bSite: false,
+        cSite: false,
+        middle: false,
         attack: true,
         defense: true
     });
 
-    let arr = videoLinks[map as string][agent as string];
-
-    if (!filters.aSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("asite")) }
-    if (!filters.bSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("bsite")) }
-    if (!filters.cSite) { arr = arr.filter((string: string) => !string.toLowerCase().includes("csite")) }
-    if (!filters.middle) { arr = arr.filter((string: string) => !string.toLowerCase().includes("middle")) }
-    if (!filters.attack) { arr = arr.filter((string: string) => !string.toLowerCase().includes("attack")) }
-    if (!filters.defense) { arr = arr.filter((string: string) => !string.toLowerCase().includes("defense")) }
-
+    useEffect(() => {
+        setArr(videoLinks[map as string][agent as string])
+        if (!filters.aSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("asite"))) }
+        if (!filters.bSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("bsite"))) }
+        if (!filters.cSite) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("csite"))) }
+        if (!filters.middle) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("middle"))) }
+        if (!filters.attack) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("attack"))) }
+        if (!filters.defense) { setArr((arr: any) => arr.filter((string: string) => !string.toLowerCase().includes("defense"))) }
+    }, [filters])
+    
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
             
@@ -58,21 +61,9 @@ const Videos: React.FC = () => {
                     isLooping
                 />   */}
 
-                {arr.map((item: any, index: any) => {
+                {arr.map((item: any) => {
                     return (
-                        <View key={index} style={styles.videoWrapper}>
-                            <Text style={styles.videoTitle}>{item}</Text>
-                            <Video
-                                style={styles.video}
-                                source={{
-                                uri: `${process.env.EXPO_PUBLIC_AWS_URL}/${item}.mp4`,
-                                }}
-                                positionMillis={1000}
-                                useNativeControls
-                                resizeMode={ResizeMode.COVER}
-                                isLooping
-                            />
-                        </View>
+                        <SingleVideo key={item} item={item}/>
                     )
                 })}
 

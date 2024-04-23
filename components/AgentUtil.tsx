@@ -6,8 +6,8 @@ import agentUtilityList from '@/utils/agentUtilityList';
 import {vh, vw} from '@/utils/dimensions';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
-const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
-                         ? 'ca-app-pub-8591491079519050/7462327433' : 'ca-app-pub-8591491079519050/3639149419';
+// const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
+//                          ? 'ca-app-pub-8591491079519050/7462327433' : 'ca-app-pub-8591491079519050/3639149419';
 
                        
 export default function AgentUtil(props: any) {
@@ -36,12 +36,12 @@ export default function AgentUtil(props: any) {
                     )
                 })}
 
-                <View style={{marginTop: "auto"}}>
+                {/* <View style={{marginTop: "auto"}}>
                     <BannerAd
                         unitId={adUnitId}
                         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
                     />
-                </View>
+                </View> */}
             </View>
 
             
