@@ -32,7 +32,7 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
 const styles = StyleSheet.create({
 
     videoWrapper: {
-        marginBottom: vh * 0.03,
+        marginBottom: vh * 0.01,
     },
 
     videoTitle: {

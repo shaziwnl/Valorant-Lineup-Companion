@@ -22,9 +22,9 @@ const Videos: React.FC = () => {
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string])
-        if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("asite"))) }
-        if (!filters.bSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("bsite"))) }
-        if (!filters.cSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("csite"))) }
+        if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("a site"))) }
+        if (!filters.bSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("b site"))) }
+        if (!filters.cSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("c site"))) }
         if (!filters.middle) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("middle"))) }
         if (!filters.attack) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("attack"))) }
         if (!filters.defense) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("defense"))) }
@@ -49,8 +49,10 @@ const Videos: React.FC = () => {
             <ScrollView>
         
                 {arr.map((item: any) => {
+                    const words = item.title.split(" ");
+                    const title = words.slice(3).join(" ");
                     return (
-                        <SingleVideo key={item.title} title={item.title} videoId={item.id}/>
+                        <SingleVideo key={item.title} title={title} videoId={item.id}/>
                     )
                 })}
             
