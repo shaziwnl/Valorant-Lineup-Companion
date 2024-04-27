@@ -23,6 +23,7 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
                 height={vh * 0.25}
                 width={vw * 0.9}
                 videoId={videoId}
+                initialPlayerParams={{controls: true}}
             />
         </View>
     </View>
@@ -42,6 +43,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'white',
         alignSelf: 'center',
+        textShadowColor: 'white',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 20,
     },
 
     ytvideo: {
@@ -49,6 +53,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'white',
         height: vh * 0.237,
+        backgroundColor: 'black',
     },
 
 });
