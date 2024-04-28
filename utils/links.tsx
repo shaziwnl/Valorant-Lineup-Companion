@@ -38,13 +38,21 @@ const videoLinks: any = {
           
             "Toxic Screen": 
             [{title: "A Site A Site Attack", id: 'ysjoPR7fGeQ'},
-            {title: "B Site B Site Attack", id: 'KqiZEa1_a6o'},]},
+            {title: "B Site B Site Attack", id: 'KqiZEa1_a6o'},
+            {title: "Middle Middle Middle Attack from A Lobby", id: 'bCymCYvP94g'},]},
 
     Yoru : [],
     Sage : [],
     Skye : [],
     Sova : [],
-    Breach : [],
+
+    Breach : {Flashpoint:
+             [{title: "B Site B Site Attack", id: 'uKxlgb7x5Cw'},
+             {title: "A Site A Main Defense from A Short", id: '1vjUcp-oCos'},],
+            
+              Aftershock:
+             [{title: "B Site Tiles Defense from B Main", id: '_ix38P9IQBU'}]},
+
     Deadlock : [],
     Chamber : [],
     Gekko : [],
