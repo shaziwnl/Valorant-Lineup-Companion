@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 const videoLinks: any = {
   // Make sure to have names with the following format
   // Agentname Map Utility PlaceOnMap Attack/Defence 
@@ -7,13 +5,25 @@ const videoLinks: any = {
   // eg: Kayo Ascent Flashdrive ASite Heaven Attack
   // we only want to keep - "A Site Heaven Attack" or "A Site Attack"
   Ascent: {
-    Astra : [],
-    Brimstone : [],
+    Brimstone : {Incendiary:
+                [{title: "A Site A Dice Attack from Lobby", id: '4HMIFp4NVM8'},
+                {title: "A Site A Dice Attack from Wine", id: 'kw5biVMNKB0'},
+                {title: "A Site Bottom Box Attack", id: 'V1VQQxRYUxQ'},
+                {title: "A Site Concrete Attack", id: 'cNAh5Yr6h30'},
+                {title: "A Site Default Attack from A Main", id: 'xKAzNT3KXDk'},
+                {title: "A Site Default Attack from A Main (Fast)", id: 'BbqWDp0fAVA'},
+                {title: "A Site Default Attack from Gelato", id: '4IzY1zBcpNo'},
+                {title: "A Site Default Attack from Top Mid", id: 'BuHhqskrMSk'},
+                {title: "A Site Generator Attack from A Lobby", id: 'hmHyf7QVzlM'},
+                {title: "A Site Generator Attack from A Main", id: '0fqEwaY91hM'},
+                {title: "A Site Generator Attack from Wine", id: 'FXhbYoVrQ9I'},
+                {title: "A Site Heaven Box Attack", id: '1A-83C7QIsI'},
+                {title: "A Site A Door Attack", id: 'Ntwx8SBkKuU'},
+                {title: "B Site B Default Attack", id: 'a8kflmdcyQ0'},
+                {title: "B Site B Corner Attack", id: 'OLX0sWmRZaU'},
+                {title: "B Site B Door Attack", id: 'PPazFKu_JrQ'},
+                {title: "B Site B Stairs Attack", id: '-KyKrtcGt6c'},],},
     Clove : [],
-    Iso : [],
-    Jett : [],
-    Omen : [],
-
     Viper : {"Snake Bite": 
             [{title: "A Site A Default Attack 1", id: 'dhEBcCX1Z5s'},
             {title: "A Site A Default Attack 2", id: 'jFH8Km0v3QU'},

@@ -21,14 +21,14 @@ export default function AgentUtil(props: any) {
             </View>
 
             <View style={styles.container2}>
-                {agentUtilityList[props.agent]?.map((utility: any, index: number) => {
+                {agentUtilityList[props.agent]?.map((utility: any) => {
                     const path = utility[1]
                     const parts = path.split("/");
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'
                     const abilityName = filename.split(".")[0]; // Get the part before the extension by splitting by '.'
                     return (
-                        <Link key={index} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
-                            <View key={index} style={styles.utilityWrapper}>
+                        <Link key={abilityName} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
+                            <View key={abilityName} style={styles.utilityWrapper}>
                                 <Image style={styles.utilImage} source={utility[0]} />
                                 <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
                             </View>
