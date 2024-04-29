@@ -23,7 +23,10 @@ const videoLinks: any = {
                 {title: "B Site B Corner Attack", id: 'OLX0sWmRZaU'},
                 {title: "B Site B Door Attack", id: 'PPazFKu_JrQ'},
                 {title: "B Site B Stairs Attack", id: '-KyKrtcGt6c'},],},
-    Clove : [],
+    Clove : {Meddle:
+            [{title: "A Site A Main Attack", id: '0S1ThQA38K4'},
+            {title: "A Site Generator Defense", id: 'H0kusbaIlPM'},],},
+
     Viper : {"Snake Bite": 
             [{title: "A Site A Default Attack 1", id: 'dhEBcCX1Z5s'},
             {title: "A Site A Default Attack 2", id: 'jFH8Km0v3QU'},
