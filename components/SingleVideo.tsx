@@ -23,7 +23,8 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
                 height={vh * 0.25}
                 width={vw * 0.9}
                 videoId={videoId}
-                initialPlayerParams={{controls: true}}
+                initialPlayerParams={{controls: true, color: 'white'}}
+                allowWebViewZoom={true}
             />
         </View>
     </View>

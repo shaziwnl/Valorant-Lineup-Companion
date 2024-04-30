@@ -13,21 +13,23 @@ const Videos: React.FC = () => {
 
     const [filters, setFilters] = useState({
         aSite: true,
-        bSite: false,
-        cSite: false,
-        middle: false,
+        bSite: true,
+        cSite: true,
+        middle: true,
         attack: true,
-        defense: false
+        defense: true,
     });
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
+        if (arr) {
         if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("a site"))) }
         if (!filters.bSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("b site"))) }
         if (!filters.cSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("c site"))) }
         if (!filters.middle) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("middle"))) }
         if (!filters.attack) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("attack"))) }
         if (!filters.defense) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("defense"))) }
+    }
     }, [filters])
     
     return (
@@ -48,7 +50,7 @@ const Videos: React.FC = () => {
                 </View>
 
                 <ScrollView>
-                    {arr.map((item: any) => {
+                    {arr?.map((item: any) => {
                         const words = item.title.split(" ");
                         const title = words.slice(2).join(" ");
                         return (

@@ -23,6 +23,7 @@ const videoLinks: any = {
                 {title: "B Site B Corner Attack", id: 'OLX0sWmRZaU'},
                 {title: "B Site B Door Attack", id: 'PPazFKu_JrQ'},
                 {title: "B Site B Stairs Attack", id: '-KyKrtcGt6c'},],},
+                
     Clove : {Meddle:
             [{title: "A Site A Main Attack", id: '0S1ThQA38K4'},
             {title: "A Site Generator Defense", id: 'H0kusbaIlPM'},],},
@@ -54,10 +55,33 @@ const videoLinks: any = {
             {title: "B Site B Site Attack", id: 'KqiZEa1_a6o'},
             {title: "Middle Middle Middle Attack from A Lobby", id: 'bCymCYvP94g'},]},
 
-    Yoru : [],
-    Sage : [],
-    Skye : [],
-    Sova : [],
+    Yoru : {Blindside:
+            [{title: "Middle Middle Bottom Mid Defense Pop Flash", id: 'uh-ux926xx8'},
+            {title: "A Site A Main Defense Pop Flash", id: 'timVCDkGtXM'},
+            {title: "A Site A Site Defense Pop Flash", id: 'vE8FfSRX_Q4'},
+            {title: "A Site A Site Retake Defense", id: 'oAO70TSqyLM'},],
+          
+            Gatecrash:
+            [{title: "B Site Defender Spawn to Back Site Defense", id: 'R7sFCnwviww'},
+            {title: "A Site A Site to Gelato Defense", id: 'PMQthlnFDfI'},
+            {title: "A Site A Lobby to Hell Attack", id: 'k7nKxw6qjpE'},
+            {title: "Middle Middle Tiles to Defender Spawn Attack", id: 'TxlW8ydp9Yo'},
+            {title: "Middle Middle Top Mid to A Short Attack", id: 'di_mMOxJdtE'},]
+          },
+
+    Sage : {"Slow Orb":
+            [{title: "A Site A Heaven Attack", id: '8YtGt3hH_UQ'},
+            {title: "B Site B Door Attack", id: 'Bj4Ztkc9rLE'},
+            {title: "B Site B Stairs Attack", id: 'QizKCwur1cg'},
+            {title: "B Site Defender Spawn Attack", id: 'BYUzRSGeY2M'},
+            {title: "Middle Middle A Short Attack from A Lobby", id: 'YzVUY4GWrHk'},
+            {title: "Middle Middle A Short Attack from Tiles", id: '32E1oRIgvik'},
+            {title: "A Site A Main Defense", id: 'pcdHOG93vE0'},
+            {title: "A Site A Generator Retake Defense", id: 'y0nWOBTHs88'},
+            {title: "B Site B Backsite Boat Retake Defense", id: 'BDprdBHPqK4'},
+            {title: "B Site B Main Defense", id: 'RDNJSzbv_Xc'},]},
+
+    Sova : {},
 
     Breach : {Flashpoint:
              [{title: "B Site B Site Attack", id: 'uKxlgb7x5Cw'},
@@ -67,7 +91,6 @@ const videoLinks: any = {
              [{title: "B Site Tiles Defense from B Main", id: '_ix38P9IQBU'}]},
 
     Deadlock : [],
-    Chamber : [],
     Gekko : [],
 
     Kayo : {Flashdrive: 
@@ -108,7 +131,14 @@ const videoLinks: any = {
     Raze : [],
     Reyna : [],
     Fade : [],
-    Cypher : [],
+    Cypher : {"Cyber Cage":
+              [{title: "A Site A Main (Left) One Way Defense", id: 'xDGZq-5Wjlk'},
+              {title: "A Site A Main (Right) One Way Defense", id: '_8NZ_fxhHNw'},
+              {title: "A Site A Short One Way Defense", id: 'fIs9Ev6h7do'},
+              {title: "A Site A Tree One Way Defense", id: 'gJVxqDPRaGk'},
+              {title: "B Site B Main One Way Defense 1", id: 'jkUYuMtaZL0'},
+              {title: "B Site B Main One Way Defense 2", id: 'T3lJHbH3uxE'},
+              {title: "B Site Market One Way Defense", id: '7AI-GI5Bs6A'},]},
     Killjoy : [],
   },
 
