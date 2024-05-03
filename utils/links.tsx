@@ -139,7 +139,14 @@ const videoLinks: any = {
             {title: "B Site B Stairs Attack", id: '5SznRj_gSHI'},],},
             
     Neon : [],
-    Pheonix : [],
+
+    Pheonix : {"Hot Hands":
+              [{title: "B Site B Corner Post Plant Attack", id: '4-7VyDDPAyE'},
+              {title: "B Site B Default Attack", id: 'Y4v3L5Dra8Q'},
+              {title: "A Site A Generator Retake Defense", id: 'jtQ-IAn_NqE'},
+              {title: "A Site A Main Round Start Defense", id: 'BFNi6QAIWSI'},
+              {title: "B Site B Default Retake Defense", id: '-K1tItOEqB0'},]},
+    
     Raze : [],
     Fade : [],
     
@@ -160,8 +167,8 @@ const videoLinks: any = {
               {title: "A Site A Generator Execute Attack", id: 'y2KGPknXdLc'},
               {title: "B Site B Backsite Execute Attack", id: 'HUQ2E2toBqs'},
               {title: "B Site B Corner Post Plant Attack", id: 'UHW1lQyqbY4'},
-              {title: "A Site A Wine from A Tree Retake Defense", id: 'BrpXrSuB6vA'},
-              ]},
+              {title: "B Site B Default Post Plant Attack", id: 'ckRtyO-1Rys'},
+              {title: "A Site A Wine from A Tree Retake Defense", id: 'BrpXrSuB6vA'},]},
   },
 
   Bind: {
