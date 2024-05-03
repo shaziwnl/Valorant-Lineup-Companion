@@ -145,7 +145,8 @@ const videoLinks: any = {
               {title: "B Site B Default Attack", id: 'Y4v3L5Dra8Q'},
               {title: "A Site A Generator Retake Defense", id: 'jtQ-IAn_NqE'},
               {title: "A Site A Main Round Start Defense", id: 'BFNi6QAIWSI'},
-              {title: "B Site B Default Retake Defense", id: '-K1tItOEqB0'},]},
+              {title: "B Site B Default Retake Defense", id: '-K1tItOEqB0'},
+              {title: "B Site B Main Round Start Defense", id: 'Zb9yl2NHYMw'},]},
     
     Raze : [],
     Fade : [],
