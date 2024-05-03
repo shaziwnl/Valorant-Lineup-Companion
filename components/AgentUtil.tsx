@@ -1,10 +1,15 @@
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, Platform } from 'react-native';
 import { Link } from 'expo-router';
 import agentImages from '@/utils/agentList';
 import mapImages from '@/utils/mapList';
 import agentUtilityList from '@/utils/agentUtilityList';
 import {vh, vw} from '@/utils/dimensions';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
+// const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
+//                          ? 'ca-app-pub-8591491079519050/7462327433' : 'ca-app-pub-8591491079519050/3639149419';
+
+                       
 export default function AgentUtil(props: any) {
 
     return (
@@ -16,21 +21,30 @@ export default function AgentUtil(props: any) {
             </View>
 
             <View style={styles.container2}>
-                {agentUtilityList[props.agent]?.map((utility: any, index: number) => {
+                {agentUtilityList[props.agent]?.map((utility: any) => {
                     const path = utility[1]
                     const parts = path.split("/");
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'
                     const abilityName = filename.split(".")[0]; // Get the part before the extension by splitting by '.'
                     return (
-                        <Link key={index} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
-                            <View key={index} style={styles.utilityWrapper}>
+                        <Link key={abilityName} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
+                            <View key={abilityName} style={styles.utilityWrapper}>
                                 <Image style={styles.utilImage} source={utility[0]} />
                                 <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
                             </View>
                         </Link>
                     )
                 })}
+
+                {/* <View style={{marginTop: "auto"}}>
+                    <BannerAd
+                        unitId={adUnitId}
+                        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                    />
+                </View> */}
             </View>
+
+            
 
         </ImageBackground>  
     );

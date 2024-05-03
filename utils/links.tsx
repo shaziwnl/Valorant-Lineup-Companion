@@ -1,28 +1,167 @@
-const perMap: any = {
-  Acsent: {
-    Astra : [],
-    Brimstone : [],
-    Clove : [],
-    Iso : [],
-    Jett : [],
-    Omen : [],
-    Viper : [],
-    Yoru : [],
-    Sage : [],
-    Skye : [],
-    Sova : [],
-    Breach : [],
-    Deadlock : [],
-    Chamber : [],
-    Gekko : [],
-    Kayo : [],
+const videoLinks: any = {
+  // Make sure to have names with the following format
+  // Agentname Map Utility PlaceOnMap Attack/Defence 
+  // eg: Kayo Ascent Flashdrive ASite Attack
+  // eg: Kayo Ascent Flashdrive ASite Heaven Attack
+  // we only want to keep - "A Site Heaven Attack" or "A Site Attack"
+  Ascent: {
+    Brimstone : {Incendiary:
+                [{title: "A Site A Dice Attack from Lobby", id: '4HMIFp4NVM8'},
+                {title: "A Site A Dice Attack from Wine", id: 'kw5biVMNKB0'},
+                {title: "A Site A Bottom Box Attack", id: 'V1VQQxRYUxQ'},
+                {title: "A Site A Concrete (Stones) Attack", id: 'cNAh5Yr6h30'},
+                {title: "A Site A Default Attack from A Main", id: 'xKAzNT3KXDk'},
+                {title: "A Site A Default Attack from A Main (Fast)", id: 'BbqWDp0fAVA'},
+                {title: "A Site A Default Attack from Gelato", id: '4IzY1zBcpNo'},
+                {title: "A Site A Default Attack from Top Mid", id: 'BuHhqskrMSk'},
+                {title: "A Site A Generator Attack from A Lobby", id: 'hmHyf7QVzlM'},
+                {title: "A Site A Generator Attack from A Main", id: '0fqEwaY91hM'},
+                {title: "A Site A Generator Attack from Wine", id: 'FXhbYoVrQ9I'},
+                {title: "A Site A Heaven Box Attack", id: '1A-83C7QIsI'},
+                {title: "A Site A Door Attack", id: 'Ntwx8SBkKuU'},
+                {title: "B Site B Default Attack", id: 'a8kflmdcyQ0'},
+                {title: "B Site B Corner Attack", id: 'OLX0sWmRZaU'},
+                {title: "B Site B Door Attack", id: 'PPazFKu_JrQ'},
+                {title: "B Site B Stairs Attack", id: '-KyKrtcGt6c'},],},
+                
+    Clove : {Meddle:
+            [{title: "A Site A Main Execute Attack", id: '0S1ThQA38K4'},
+            {title: "A Site A Generator Retake Defense", id: 'H0kusbaIlPM'},],},
+
+    Viper : {"Snake Bite": 
+            [{title: "A Site A Default Attack 1", id: 'dhEBcCX1Z5s'},
+            {title: "A Site A Default Attack 2", id: 'jFH8Km0v3QU'},
+            {title: "A Site A Door Attack", id: 'szXRGud-gFE'},
+            {title: "A Site A Heaven Attack", id: 'IClB-NCg_hg'},
+            {title: "A Site Dice Attack 1", id: 'Rchkit72SVc'},
+            {title: "A Site Dice Attack 2", id: 'pwK57Oyj85E'},
+            {title: "A Site Generator Attack 1", id: 'xOu03X8StVM'},
+            {title: "A Site Generator Attack 2", id: 'oLmdLvdp0jg'},
+            {title: "B Site B Spawn Attack", id: 'Wq0z1gOwSgo'},
+            {title: "B Site B Stairs Attack", id: 'gO7IodVZo30'},
+            {title: "B Site Market Door Attack", id: 'nH_NefiGrMo'},],
+          
+            "Poison Cloud":
+            [{title: "A Site A Default Attack", id: 'IEQlDqqIJUA'},
+            {title: "A Site A Heaven Attack", id: 'pX2rqHV-rf0'},
+            {title: "B Site B Spawn Attack", id: 'OB-EMXhynBg'},
+            {title: "B Site B Default Attack", id: 'vaHylHF6s5A'},
+            {title: "A Site A Short Defense", id: 'zUIe4A4oO9k'},
+            {title: "B Site B Lane One Way Defense", id: 'FBByoDqjBqk'},
+            {title: "B Site B Main One Way Defense", id: 'N1YTlJraOlI'},],
+          
+            "Toxic Screen": 
+            [{title: "A Site A Site Attack", id: 'ysjoPR7fGeQ'},
+            {title: "B Site B Site Attack", id: 'KqiZEa1_a6o'},
+            {title: "Middle Middle Middle Attack from A Lobby", id: 'bCymCYvP94g'},]},
+
+    Yoru : {Blindside:
+            [{title: "Middle Middle Bottom Mid Defense Pop Flash", id: 'uh-ux926xx8'},
+            {title: "A Site A Main Defense Pop Flash", id: 'timVCDkGtXM'},
+            {title: "A Site A Site Defense Pop Flash", id: 'vE8FfSRX_Q4'},
+            {title: "A Site A Site Retake Defense", id: 'oAO70TSqyLM'},],
+          
+            Gatecrash:
+            [{title: "B Site Defender Spawn to Back Site Defense", id: 'R7sFCnwviww'},
+            {title: "A Site A Site to Gelato Defense", id: 'PMQthlnFDfI'},
+            {title: "A Site A Lobby to Hell Attack", id: 'k7nKxw6qjpE'},
+            {title: "Middle Middle Tiles to Defender Spawn Attack", id: 'TxlW8ydp9Yo'},
+            {title: "Middle Middle Top Mid to A Short Attack", id: 'di_mMOxJdtE'},]
+          },
+
+    Sage : {"Slow Orb":
+            [{title: "A Site A Heaven Attack", id: '8YtGt3hH_UQ'},
+            {title: "B Site B Door Attack", id: 'Bj4Ztkc9rLE'},
+            {title: "B Site B Stairs Attack", id: 'QizKCwur1cg'},
+            {title: "B Site B Defender Spawn Attack", id: 'BYUzRSGeY2M'},
+            {title: "Middle Middle A Short Attack from A Lobby", id: 'YzVUY4GWrHk'},
+            {title: "Middle Middle A Short Attack from Tiles", id: '32E1oRIgvik'},
+            {title: "A Site A Main Defense", id: 'pcdHOG93vE0'},
+            {title: "A Site A Generator Retake Defense", id: 'y0nWOBTHs88'},
+            {title: "B Site B Backsite Boat Retake Defense", id: 'BDprdBHPqK4'},
+            {title: "B Site B Main Defense", id: 'RDNJSzbv_Xc'},]},
+
+    Sova : {},
+
+    Breach : {Flashpoint:
+             [{title: "B Site B Site Attack", id: 'uKxlgb7x5Cw'},
+             {title: "A Site A Main Defense from A Short", id: '1vjUcp-oCos'},],
+            
+              Aftershock:
+             [{title: "B Site Tiles Defense from B Main", id: '_ix38P9IQBU'},]},
+
+    Deadlock : {},
+    
+    Gekko : {"Mosh Pit":
+            [{title: "A Site A Default Post Plant Attack", id: 'wP71bM2baJo'},
+            {title: "A Site A Dice Post Plant Attack", id: 'ENsKMv2Ic5A'},
+            {title: "A Site A Concrete (Stones) Execute Attack", id: 'b_uP1egM87U'},
+            {title: "A Site A Dice Execute Attack", id: 'SDXfV6on-ro'},
+            {title: "A Site A Generator Attack", id: 'Z4B5KVQRN48'},
+            {title: "B Site B Default Post Plant Attack", id: '9XrwgztPdAM'},
+            {title: "A Site A Generator Retake Defense", id: '0axNnU1Y23g'},
+            {title: "B Site B Backsite Left Retake Defense", id: 'h6vQuVOhsjA'},
+            {title: "B Site B Backsite Right Retake Defense", id: 'p4rqCf4npR0'},
+            {title: "B Site B Default Retake Defense", id: 'Xv1njKzlbxc'},],
+          },
+
+    Kayo : {Flashdrive: 
+            [{title: "B Site B Lane Attack", id: 'np7BiyTsh5Q'},
+            {title: "A Site A Main Attack", id: '7npQY7tjukY'},
+            {title: "A Site A Site Attack", id: 'tKJPMLVZ7pc'},
+            {title: "B Site Boat + Logs Attack", id: '1GjcMfy7_3Y'},
+            {title: "B Site Post Plant Boat Attack", id: '9tSBDbHtNzU'},
+            {title: "Middle Middle Middle Attack", id: 'tGpSCRdoe_Q'},
+            {title: "Middle Middle Market Attack", id: 'QL0aWMWDFO4'},
+            {title: "A Site A Main Defense 1", id: '3sQpeTaSNqs'},
+            {title: "A Site A Main Defense 2", id: 'K_6ZGdSgcXM'},
+            {title: "A Site A Main Defense Pop Flash", id: 'zleKEbavj_A'},
+            {title: "A Site A Site Defense Retake", id: 'TO9A0F_ZhTM'},
+            {title: "B Site B Lobby Defense", id: 'XRevs8ZTtT4'},
+            {title: "B Site B Main Defense from Site", id: 'm6c38A4TO28'},
+            {title: "B Site B Main Defense from Market", id: 'Rn1mQYKOfO4'},
+            {title: "B Site B Site Retake Defense", id: '_T1YUEDRSEQ'},
+            {title: "Middle Middle Middle Defense from A Short", id: 'SnyQhDe8HRk'},
+            {title: "Middle Middle Middle Defense from Market", id: 'gb_14dB6qho'},
+            {title: "Middle Middle Mid Link Defense", id: '_s1_i6-H0IA'},],
+
+            Zeropoint: 
+            [{title: "A Site A Site Attack Round Start", id: 'bkueL_eamk4'},
+            {title: "A Site A Site Attack", id: '1HSA9LNiE3I'},
+            {title: "B Site B Site Attack", id: 'J-co3Cb_FLA'},
+            {title: "Middle Middle Market Attack", id: 'kMRfCUUbiOc'},
+            {title: "A Site A Main Defense", id: 'W0PbP4s7AKs'},
+            {title: "A Site A Main Defense from B", id: 'xWsX5tdDpyQ'},],
+            
+            Fragment: 
+            [{title: "A Site A Door Attack", id: 'WmKsDjJ2GOc'},
+            {title: "A Site Generator Attack", id: '98Ki3W1JroY'},
+            {title: "B Site B Stairs Attack", id: '5SznRj_gSHI'},],},
+            
     Neon : [],
     Pheonix : [],
     Raze : [],
-    Reyna : [],
     Fade : [],
-    Cypher : [],
-    Killjoy : [],
+    
+    Cypher : {"Cyber Cage":
+              [{title: "A Site A Main (Left) One Way Defense", id: 'xDGZq-5Wjlk'},
+              {title: "A Site A Main (Right) One Way Defense", id: '_8NZ_fxhHNw'},
+              {title: "A Site A Short One Way Defense", id: 'fIs9Ev6h7do'},
+              {title: "A Site A Tree One Way Defense", id: 'gJVxqDPRaGk'},
+              {title: "B Site B Main One Way Defense 1", id: 'jkUYuMtaZL0'},
+              {title: "B Site B Main One Way Defense 2", id: 'T3lJHbH3uxE'},
+              {title: "B Site Market One Way Defense", id: '7AI-GI5Bs6A'},]},
+
+    Killjoy : {Nanoswarm:
+              [{title: "A Site A Default Post Plant Attack", id: 'y2VfWjPOgTc'},
+              {title: "A Site A Dice Post Plant Attack", id: 'KJrXGzecMJ4'},
+              {title: "A Site A Door Execute Attack 1", id: 'dk_iqSknpks'},
+              {title: "A Site A Door Execute Attack 2", id: 'xyYoB4B3N64'},
+              {title: "A Site A Generator Execute Attack", id: 'y2KGPknXdLc'},
+              {title: "B Site B Backsite Execute Attack", id: 'HUQ2E2toBqs'},
+              {title: "B Site B Corner Post Plant Attack", id: 'UHW1lQyqbY4'},
+              {title: "A Site A Wine from A Tree Retake Defense", id: 'BrpXrSuB6vA'},
+              ]},
   },
 
   Bind: {
@@ -234,4 +373,4 @@ const perMap: any = {
   },
 }
 
-export default perMap;
+export default videoLinks;
