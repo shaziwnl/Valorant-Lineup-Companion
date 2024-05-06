@@ -90,7 +90,24 @@ const videoLinks: any = {
               Aftershock:
              [{title: "B Site Tiles Defense from B Main", id: '_ix38P9IQBU'},]},
 
-    Deadlock : {},
+    Deadlock : {"GravNet":
+                [{title: "A Site A Concrete Stones Execute Attack", id: 'e4EbNahWvjM'},
+                {title: "A Site A Dice Attack from A Lobby", id: 'X4nGQH-chKc'},
+                {title: "A Site A Dice Attack from A Main", id: 'Bp5-wTHNn5U'},
+                {title: "A Site A Door Execute Attack from A Lobby", id: 'DwXYs91Nre4'},
+                {title: "A Site A Door Execute Attack from A Main", id: '74dF7gCWvWU'},
+                {title: "A Site A Generator Attack", id: 'aiZuSVwdW4U'},
+                {title: "A Site A Heaven Attack from A Main", id: 'n0HFmiwAjR8'},
+                {title: "A Site A Heaven Box Execute Attack", id: 'hvpgmNktqzw'},
+                {title: "B Site B Stairs Execute Attack", id: 'KiaHM3DQT4U'},
+                {title: "B Site Market Door Execute Attack", id: '8P2yrS4QqHo'},
+                {title: "A Site A Generator Retake Defense", id: 'ldhvnErCZS4'},
+                {title: "A Site A Main (Left) Retake Defense", id: 'aQQi0RfqCF0'},
+                {title: "A Site A Main (Right) Retake Defense", id: 'oCFwJJI-5gw'},
+                {title: "B Site B Backsite (Left) Retake Defense", id: 'QHCZqQ-QWGQ'},
+                {title: "B Site B Backsite (Right) Retake Defense", id: 'H-JJqmdSHg8'},
+                {title: "B Site B Default Retake Defense", id: '6BMCN-NoXcs'},
+                ]},
     
     Gekko : {"Mosh Pit":
             [{title: "A Site A Default Post Plant Attack", id: 'wP71bM2baJo'},
@@ -140,7 +157,7 @@ const videoLinks: any = {
             
     Neon : [],
 
-    Pheonix : {"Hot Hands":
+    Phoenix : {"Hot Hands":
               [{title: "B Site B Corner Post Plant Attack", id: '4-7VyDDPAyE'},
               {title: "B Site B Default Attack", id: 'Y4v3L5Dra8Q'},
               {title: "A Site A Generator Retake Defense", id: 'jtQ-IAn_NqE'},
@@ -149,6 +166,7 @@ const videoLinks: any = {
               {title: "B Site B Main Round Start Defense", id: 'Zb9yl2NHYMw'},]},
     
     Raze : [],
+    
     Fade : [],
     
     Cypher : {"Cyber Cage":
@@ -190,7 +208,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -216,7 +234,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -242,7 +260,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -268,7 +286,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -294,7 +312,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -320,7 +338,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -346,7 +364,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
@@ -372,7 +390,7 @@ const videoLinks: any = {
     Gekko : [],
     Kayo : [],
     Neon : [],
-    Pheonix : [],
+    Phoenix : [],
     Raze : [],
     Reyna : [],
     Fade : [],
