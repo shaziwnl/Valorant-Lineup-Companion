@@ -155,7 +155,7 @@ const videoLinks: any = {
             {title: "A Site Generator Attack", id: '98Ki3W1JroY'},
             {title: "B Site B Stairs Attack", id: '5SznRj_gSHI'},],},
             
-    Neon : [],
+    Neon : {},
 
     Phoenix : {"Hot Hands":
               [{title: "B Site B Corner Post Plant Attack", id: '4-7VyDDPAyE'},
@@ -165,9 +165,9 @@ const videoLinks: any = {
               {title: "B Site B Default Retake Defense", id: '-K1tItOEqB0'},
               {title: "B Site B Main Round Start Defense", id: 'Zb9yl2NHYMw'},]},
     
-    Raze : [],
+    Raze : {},
     
-    Fade : [],
+    Fade : {},
     
     Cypher : {"Cyber Cage":
               [{title: "A Site A Main (Left) One Way Defense", id: 'xDGZq-5Wjlk'},
