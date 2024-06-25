@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
 
     ytvideo: {
         alignSelf: 'center',
-        borderWidth: 1,
-        borderColor: 'white',
+        // borderWidth: 1,
+        // borderColor: 'white',
         height: vh * 0.237,
         backgroundColor: 'black',
     },
