@@ -25,7 +25,6 @@ const Videos: React.FC = () => {
         console.log(firebase.firestore().collection('Lineups').doc('1').get().then((doc) => {
             console.log(doc.data())
         }))
-        
     }, [])
 
     useEffect(() => {
