@@ -16,15 +16,17 @@
       "**/*"
     ],
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.firstexpoapp"
+      "bundleIdentifier": "com.theSymbol.vlrcomp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.firstexpoapp"
+      "googleServicesFile": "./google-services.json",
+      "package": "com.theSymbol.vlrcomp"
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +34,18 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "@react-native-firebase/app",
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+      
+      
     ],
     "experiments": {
       "typedRoutes": true
@@ -42,7 +55,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "bcf7e35c-3282-496c-afd6-f3c2dd90706d"
+        "projectId": "e4ce3b68-97c0-4a61-b08d-19f3061d668c"
       }
     }
   },

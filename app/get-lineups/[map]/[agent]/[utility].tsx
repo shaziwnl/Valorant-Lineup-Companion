@@ -5,6 +5,7 @@ import Checkbox from '@/components/Checkbox';
 import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
+import { firebase } from '@react-native-firebase/firestore';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
@@ -21,6 +22,12 @@ const Videos: React.FC = () => {
     });
 
     useEffect(() => {
+        console.log(firebase.firestore().collection('Lineups').doc('1').get().then((doc) => {
+            console.log(doc.data())
+        }))
+    }, [])
+
+    useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
         if (arr) {
             if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("a site"))) }
@@ -29,7 +36,7 @@ const Videos: React.FC = () => {
             if (!filters.middle) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("middle"))) }
             if (!filters.attack) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("attack"))) }
             if (!filters.defense) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("defense"))) }
-            console.log(arr)
+            // console.log(arr)
         }
     }, [filters])
     
