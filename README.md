@@ -79,7 +79,6 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 ### Built With
 [![TypeScript][TypeScript.com]][TypeScript-url]
 
-
 [![React Native][React.js]][React-url]
 
 [![SQLite][SQLite.com]][SQLite-url]
