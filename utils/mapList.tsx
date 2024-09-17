@@ -1,4 +1,6 @@
-const mapImages: any = {
+import { MapImages } from "@/interfaces/MapImages";
+
+const mapImages: MapImages = {
     Ascent: require('../assets/images/maps/Ascent.png'),
     Bind: require('../assets/images/maps/Bind.png'),
     Lotus: require('../assets/images/maps/Lotus.png'),
@@ -10,4 +12,4 @@ const mapImages: any = {
     Split: require('../assets/images/maps/Split.png'),
 }
 
-export default mapImages;
+export default mapImages;               

@@ -1,4 +1,6 @@
-const agentImages: any = {
+import { AgentImages } from "@/interfaces/AgentImages";
+
+const agentImages: AgentImages = {
     Astra: require('../assets/images/agents/Astra.png'),
     Brimstone: require('../assets/images/agents/Brimstone.png'),
     Clove: require('../assets/images/agents/Clove.png'),

@@ -1,16 +1,17 @@
-import { View, Text, StyleSheet, Image, ImageBackground, Platform } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageBackground, Platform, ImageURISource } from 'react-native';
 import { Link } from 'expo-router';
 import agentImages from '@/utils/agentList';
 import mapImages from '@/utils/mapList';
 import agentUtilityList from '@/utils/agentUtilityList';
 import {vh, vw} from '@/utils/dimensions';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import { AgentUtilProps } from '@/interfaces/props/AgentUtilProps';
 
 const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
                          ? 'ca-app-pub-8591491079519050/7462327433' : 'ca-app-pub-8591491079519050/3639149419';
 
                        
-export default function AgentUtil(props: any) {
+export default function AgentUtil(props: AgentUtilProps) {
 
     return (
         <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
@@ -21,7 +22,7 @@ export default function AgentUtil(props: any) {
             </View>
 
             <View style={styles.container2}>
-                {agentUtilityList[props.agent]?.map((utility: any) => {
+                {agentUtilityList[props.agent]?.map((utility: [ImageURISource, string]) => {
                     const path = utility[1]
                     const parts = path.split("/");
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'

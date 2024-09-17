@@ -7,7 +7,7 @@ function Agent() {
     const { agent, map } = useLocalSearchParams();
     
     return (
-        <AgentUtil map={map} agent={agent}/>
+        <AgentUtil map={map as string} agent={agent as string}/>
     )
     
 }
