@@ -1,3 +1,5 @@
+import { VideoLinks } from "@/interfaces/VideoLink";
+
 const videoLinks: any = {
   // Make sure to have names with the following format
   // Agentname Map Utility PlaceOnMap Attack/Defence 

@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import agentImages from '@/utils/agentList';
 import { vw, vh } from '@/utils/dimensions'
 
-export default function Map(props: any) {
+export default function Agent(props: {name: string}) {
 
     return (
         <View>

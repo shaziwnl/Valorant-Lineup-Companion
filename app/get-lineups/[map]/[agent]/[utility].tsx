@@ -6,6 +6,8 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { firebase } from '@react-native-firebase/firestore';
+import { VideoLink } from '@/interfaces/VideoLink';
+import { Video } from 'expo-av';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
@@ -30,12 +32,12 @@ const Videos: React.FC = () => {
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
         if (arr) {
-            if (!filters.aSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("a site"))) }
-            if (!filters.bSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("b site"))) }
-            if (!filters.cSite) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("c site"))) }
-            if (!filters.middle) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("middle"))) }
-            if (!filters.attack) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("attack"))) }
-            if (!filters.defense) { setArr((arr: any) => arr.filter((item: {title: string, id: string}) => !item.title.toLowerCase().includes("defense"))) }
+            if (!filters.aSite) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("a site"))) }
+            if (!filters.bSite) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("b site"))) }
+            if (!filters.cSite) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("c site"))) }
+            if (!filters.middle) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("middle"))) }
+            if (!filters.attack) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("attack"))) }
+            if (!filters.defense) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("defense"))) }
             // console.log(arr)
         }
     }, [filters])
@@ -58,7 +60,7 @@ const Videos: React.FC = () => {
                 </View>
 
                 <ScrollView>
-                    {arr?.map((item: any) => {
+                    {arr?.map((item: VideoLink) => {
                         const words = item.title.split(" ");
                         const title = words.slice(2).join(" ");
                         return (

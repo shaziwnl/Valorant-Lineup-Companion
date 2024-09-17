@@ -2,10 +2,10 @@ import { Link } from 'expo-router';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import mapImages from '@/utils/mapList';
 import { vw, vh } from '@/utils/dimensions'
+import { MapProps } from '@/interfaces/props/MapProps';
 
-export default function Map(props: any) {
+export default function Map(props: MapProps) {
         
-
     return (
         <Link href={`/agent-select/${props.name}`}>
             <View style={{width:"100%"}}>
