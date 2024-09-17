@@ -28,8 +28,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/shaziwnl/Valorant-Lineup-Companion">
-    ![valologo](https://github.com/user-attachments/assets/142def3e-bd46-423f-a74b-a22df5ca47a5)
-<!--     <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
+<!--     ![valologo](https://github.com/user-attachments/assets/142def3e-bd46-423f-a74b-a22df5ca47a5) -->
+    <img src="https://github.com/user-attachments/assets/142def3e-bd46-423f-a74b-a22df5ca47a5" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">project_title</h3>
