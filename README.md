@@ -89,7 +89,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * [![React Native][React.js]][React-url]
-* [![SQLite][Laravel.com]][Laravel-url]
+* [![SQLite][https://www.sqlite.org/]][SQL-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
