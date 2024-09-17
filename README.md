@@ -76,11 +76,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 
 ### Built With
-
+* [![TypeScript][TypeScript.com]][TypeScript-url]
 * [![React Native][React.js]][React-url]
 * [![SQLite][SQLite.com]][SQLite-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -238,3 +237,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [SQLite-url]: https://www.sqlite.org/
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[TypeScript.com]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square
+[Typescript-url]: https://www.typescriptlang.org/
