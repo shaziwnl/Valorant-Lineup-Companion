@@ -82,7 +82,7 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 [![TypeScript][TypeScript.com]][TypeScript-url]
 [![React Native][React.js]][React-url]
 [![SQLite][SQLite.com]][SQLite-url]
-
+[![Google Admob][GoogleAdmob.com]][GoogleAdmob-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -227,3 +227,5 @@ Sharang Goel - sharang.goel@uwaterloo.ca
 [JQuery-url]: https://jquery.com 
 [TypeScript.com]: https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square
 [Typescript-url]: https://www.typescriptlang.org/
+[GoogleAdmob.com]: https://img.shields.io/badge/Google_Admob-black?logo=googleadmob
+[GoogeAdmob-url]: https://admob.google.com/home/
