@@ -71,10 +71,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+Valorant Lineup Companion is your one-stop solution for the most up-to-date Valorant lineups for all maps and agents
+Available on both IOS and Android, this handy tool ensures that you never get caught forgetting lineups and always remain the X-Factor for your team
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
