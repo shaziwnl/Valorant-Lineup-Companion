@@ -82,7 +82,7 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 [![TypeScript][TypeScript.com]][TypeScript-url]
 [![React Native][React.js]][React-url]
 [![SQLite][SQLite.com]][SQLite-url]
-[![Google Admob][GoogleAdmob.com][GoogleAdmob-url]
+[![Google Admob][GoogleAdmob.com]][GoogleAdmob-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
