@@ -74,17 +74,17 @@
 Valorant Lineup Companion is the most up-to-date Valorant lineup app for all maps and agents
 Available on both IOS and Android, this handy tool ensures that you never play a match with a forgotten lineup and always remain the X-Factor for your team
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
 [![TypeScript][TypeScript.com]][TypeScript-url]
-[![React Native][React.js]][React-url]
-[![SQLite][SQLite.com]][SQLite-url]
-[![Google Admob][GoogleAdmob.com]][GoogleAdmob-url]
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+[![React Native][React.js]][React-url]
+
+[![SQLite][SQLite.com]][SQLite-url]
+
+[![Google Admob][GoogleAdmob.com]][GoogleAdmob-url]
 
 
 
