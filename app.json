@@ -15,19 +15,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "supportsTablet": true,
-      "bundleIdentifier": "com.theSymbol.vlrcomp"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "googleServicesFile": "./google-services.json",
-      "package": "com.theSymbol.vlrcomp"
-    },
     "web": {
       "bundler": "metro",
       "output": "static",
