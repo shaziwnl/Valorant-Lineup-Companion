@@ -66,6 +66,7 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 <!-- CONTACT -->
 ## Contact
 Sharang Goel - sharang.goel@uwaterloo.ca
+
 Anshul Kumar - anshulkumarg0re@gmail.com
 
 
