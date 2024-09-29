@@ -5,9 +5,7 @@ import Checkbox from '@/components/Checkbox';
 import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
-import { firebase } from '@react-native-firebase/firestore';
 import { VideoLink } from '@/interfaces/VideoLink';
-import { Video } from 'expo-av';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
@@ -22,12 +20,6 @@ const Videos: React.FC = () => {
         attack: true,
         defense: true,
     });
-
-    useEffect(() => {
-        console.log(firebase.firestore().collection('Lineups').doc('1').get().then((doc) => {
-            console.log(doc.data())
-        }))
-    }, [])
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
