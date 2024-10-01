@@ -28,7 +28,7 @@ export default function AgentUtil(props: AgentUtilProps) {
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'
                     const abilityName = filename.split(".")[0]; // Get the part before the extension by splitting by '.'
                     return (
-                        <Link key={abilityName} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
+                        <Link key={abilityName} href={`../index/${props.map}/${props.agent}/${abilityName}`}>
                             <View key={abilityName} style={styles.utilityWrapper}>
                                 <Image style={styles.utilImage} source={utility[0]} />
                                 <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>

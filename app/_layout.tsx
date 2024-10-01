@@ -45,9 +45,9 @@ function RootLayoutNav() {
     <ThemeProvider value={DarkTheme}>
       <Stack>
         <Stack.Screen name="index" options={{headerTitle: "Select Map"}}/>
-        <Stack.Screen name="agent-select/[map]" options={{headerTitle: "Select Agent"}}/>
-        <Stack.Screen name="util-select/[map]/[agent]" options={{ headerTitle: "Select Utility"}}/>
-        <Stack.Screen name="get-lineups/[map]/[agent]/[utility]" options={{headerTitle: ""}}/>
+        <Stack.Screen name="/[map]" options={{headerTitle: "Select Agent"}}/>
+        <Stack.Screen name="/[map]/[agent]" options={{ headerTitle: "Select Utility"}}/>
+        <Stack.Screen name="/[map]/[agent]/[utility]" options={{headerTitle: ""}}/>
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
