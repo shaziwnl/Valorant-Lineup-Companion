@@ -25,7 +25,7 @@ export default function AgentSelect() {
                 <ScrollView>
                     <View style={styles.container2}>
                     {AgentList.map((agentName) => (
-                        <Link key={agentName} href={`./${map}/${agentName}`}>
+                        <Link key={agentName} href={`/${map}/${agentName}/`}>
                             <Agent name={agentName}/>
                         </Link>
                     ))}

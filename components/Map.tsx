@@ -7,7 +7,7 @@ import { MapProps } from '@/interfaces/props/MapProps';
 export default function Map(props: MapProps) {
         
     return (
-        <Link href={`../index/${props.name}`}>
+        <Link href={`/${props.name}/`}>
             <View style={{width:"100%"}}>
                 <Image style={styles.image} source={mapImages[props.name]} />
                 <Text style={styles.title}>{props.name.toUpperCase()}</Text>
