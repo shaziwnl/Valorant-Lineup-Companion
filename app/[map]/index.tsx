@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
         gap: vh * 0.04,
         flexDirection: 'row',
         justifyContent: 'center',
-        // backgroundColor: 'rgba(0, 0, 0, 0.75)',
         backgroundColor: 'transparent',
     },
 

@@ -10,19 +10,27 @@ export default function Map(props: MapProps) {
         <Link href={`/${props.name}/`}>
             <View style={{width:"100%"}}>
                 <Image style={styles.image} source={mapImages[props.name]} />
-                <Text style={styles.title}>{props.name.toUpperCase()}</Text>
+                <Text style={[styles.title]}>{props.name.toUpperCase()}</Text>
             </View>
         </Link>
     );
 };
 
 const styles = StyleSheet.create({
-    
+
+    image: {
+        width: vw * 0.77,
+        height: vh * 0.18,
+        borderRadius: 25,
+        borderColor: 'white',
+        borderWidth: 1,
+    },
+
     title: {
-        fontFamily: 'Valorant',
         marginTop: vh * 0.01,
         fontSize: vh * 0.025,
-        fontWeight: 'bold',
+        fontWeight: '600',
+        fontFamily: 'Valorant',
         color: 'white',
         textAlign: 'center',
         textShadowColor: 'white',
@@ -30,9 +38,4 @@ const styles = StyleSheet.create({
         textShadowRadius: 25,
     },
 
-    image: {
-        width: vw * 0.77,
-        // width: 300,
-        height: vh * 0.18,
-    }
 });
