@@ -24,15 +24,20 @@
       "@react-native-firebase/app",
       "expo-router",
       [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Valorant Font.ttf"]
+        }
+      ],
+      [
         "expo-build-properties",
         {
           "ios": {
             "useFrameworks": "static"
           }
         }
-      ]
-      
-      
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true

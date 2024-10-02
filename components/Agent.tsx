@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     
     title: {
         fontSize: vh * 0.025,
-        fontWeight: 'bold',
+        fontWeight: '500',
         color: 'white',
         textAlign: 'center',
         fontFamily: 'Valorant',
