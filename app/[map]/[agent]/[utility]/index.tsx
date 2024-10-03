@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { VideoLink } from '@/interfaces/VideoLink';
+import { Link } from 'expo-router';
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
@@ -52,11 +53,16 @@ const Videos: React.FC = () => {
                 </View>
 
                 <ScrollView>
+                    
                     {arr?.map((item: VideoLink) => {
                         const words = item.title.split(" ");
                         const title = words.slice(2).join(" ");
                         return (
+                        <View key={item.id} style={styles.videoContainer}>
+                            
                             <SingleVideo key={item.id} title={title} videoId={item.id}/>
+                            
+                        </View>
                         )
                     })}
                 </ScrollView>
@@ -74,6 +80,15 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         borderTopColor: 'white',
         borderTopWidth: 2,
+    },
+
+    videoContainer: {
+        // display: 'flex',
+        // flexDirection: 'row',
+        flex: 1,
+        alignItems: 'center',
+        marginBottom: vh * 0.02,
+        // justifyContent: 'center',
     },
 
     text: {

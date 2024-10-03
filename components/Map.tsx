@@ -19,8 +19,8 @@ export default function Map(props: MapProps) {
 const styles = StyleSheet.create({
 
     image: {
-        width: vw * 0.77,
-        height: vh * 0.18,
+        width: vw * 0.85,
+        height: vh * 0.235,
         borderRadius: 25,
         borderColor: 'white',
         borderWidth: 1,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
     title: {
         marginTop: vh * 0.01,
-        fontSize: vh * 0.025,
+        fontSize: vh * 0.030,
         fontWeight: '600',
         fontFamily: 'Valorant',
         color: 'white',
