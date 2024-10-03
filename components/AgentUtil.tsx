@@ -17,8 +17,8 @@ export default function AgentUtil(props: AgentUtilProps) {
         <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
 
             <View style={styles.container}>
-                <Image style={styles.agentImage} source={agentImages[props.agent]} />
-                <Image style={styles.mapImage} source={mapImages[props.map]} />
+                <Image style={styles.agentImage} source={agentImages[props.agent]} />    
+                <Image style={styles.mapImage} source={mapImages[props.map]} />                
             </View>
 
             <View style={styles.container2}>
@@ -80,9 +80,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomWidth: 2,
         borderColor: 'white',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'rgba(0, 0, 0, 0.25)',
+        // backgroundColor: 'rgba(225, 225, 225, 0.1)',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: vh * 0.015,
     },
 
     container2: {
@@ -99,13 +101,14 @@ const styles = StyleSheet.create({
 
     mapImage: {
         // width: 250,
-        width: vw * 0.65,
-        height: vh * 0.2,
+        width: vw * 0.70,
+        height: vh * 0.25,
         borderRadius: 20,
-        borderColor: 'white',
-        borderWidth: 2,
+        // borderColor: 'white',
+        borderLeftWidth: 1,
+        borderWidth: 1,
+        
     },
-
 
     wallpaper: {
         width: '100%',

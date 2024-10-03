@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Valorant',
         color: 'white',
         textAlign: 'center',
-        textShadowColor: 'white',
+        textShadowColor: 'grey',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 25,
     },
