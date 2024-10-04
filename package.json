@@ -36,7 +36,10 @@
     "react-native-web": "~0.19.6",
     "react-native-webview": "13.6.4",
     "react-native-youtube-iframe": "^2.3.0",
-    "expo-font": "~11.10.3"
+    "expo-font": "~11.10.3",
+    "expo-sqlite": "~13.4.0",
+    "expo-file-system": "~16.0.9",
+    "expo-asset": "~9.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

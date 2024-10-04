@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Video, ResizeMode } from 'expo-av'
 import { View, Text, StyleSheet } from 'react-native'
 import {vh, vw} from '@/utils/dimensions'
@@ -6,10 +6,13 @@ import YoutubeIframe from 'react-native-youtube-iframe'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
 import { Alert, Share } from 'react-native'
-
+import * as SQLite from 'expo-sqlite'
+import { useSQLiteContext } from 'expo-sqlite/next'
 
 
 function SingleVideo({title, videoId}: {title: string, videoId: string}) {
+
+    const db = useSQLiteContext();
 
     const handleShare = async () => {
         try {
@@ -33,6 +36,22 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
             Alert.alert(error.message);
         }
     }
+    
+
+    const handleSave = async () => {
+        // save the video to the database
+        await db.execAsync // create the table if it doesnt exist
+        (`CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, title TEXT, videoId TEXT)`)
+
+        const before = await db.getAllAsync('SELECT * FROM test') // just inspect the table
+        console.log(before)
+
+        await db.runAsync(`INSERT INTO test (title, videoId) VALUES (?, ?)`, [title, videoId]) // run your query
+
+        const after = await db.getAllAsync('SELECT * FROM test') // inspect the table again
+        console.log(after)
+        
+    }
 
     return (
         <View key={title} style={styles.videoWrapper}>
@@ -47,10 +66,10 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
                 />
             </View>
 
-            <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: vh * 0.01, marginHorizontal: vw * 0.05}}>
+            <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: vh * 0.035, marginHorizontal: vw * 0.05}}>
                 <Text style={styles.videoTitle}>{title}</Text>
                 <View style={{display: "flex", flexDirection: "row", gap: 12}}>
-                    <MaterialIcons onPress={() => console.log("Save")} name="save-alt" size={31} color="white" />
+                    <MaterialIcons onPress={handleSave} name="save-alt" size={31} color="white" />
                     <Entypo onPress={handleShare} name="share" size={26} color="white" />
                 </View>
             </View>
