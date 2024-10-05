@@ -3,14 +3,17 @@ import { Video, ResizeMode } from 'expo-av'
 import { View, Text, StyleSheet } from 'react-native'
 import {vh, vw} from '@/utils/dimensions'
 import YoutubeIframe from 'react-native-youtube-iframe'
-import { MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons, SimpleLineIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
 import { Alert, Share } from 'react-native'
 import * as SQLite from 'expo-sqlite'
 import { useSQLiteContext } from 'expo-sqlite/next'
+import WebView from 'react-native-webview'
 
 
 function SingleVideo({title, videoId}: {title: string, videoId: string}) {
+
+    
 
     const db = useSQLiteContext();
 
@@ -61,16 +64,24 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
                     height={vh * 0.3}
                     width={vw * 0.95}
                     videoId={videoId}
-                    initialPlayerParams={{controls: true, color: 'white'}}
+                    initialPlayerParams={{controls: false, color: 'white', rel:false, loop: true}}
                     allowWebViewZoom={true}
+                    
                 />
+                {/* <WebView 
+                    source={{ uri: `https://www.youtube.com/embed/${videoId}?controls=1&color=white&loop=1` }} 
+                    style={{ height: vh * 0.3, width: vw * 0.95 }} 
+                    javaScriptEnabled={true} 
+                    domStorageEnabled={true} 
+                /> */}
             </View>
 
-            <View style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: vh * 0.035, marginHorizontal: vw * 0.05}}>
+            <View style={styles.infoWrapper}>
                 <Text style={styles.videoTitle}>{title}</Text>
                 <View style={{display: "flex", flexDirection: "row", gap: 12}}>
                     <MaterialIcons onPress={handleSave} name="save-alt" size={31} color="white" />
-                    <Entypo onPress={handleShare} name="share" size={26} color="white" />
+                    {/* <Entypo onPress={handleShare} name="share" size={26} color="white" /> */}
+                    <SimpleLineIcons onPress={handleShare} name="paper-plane" size={24} color="white" style={{marginTop: 3}}/>
                 </View>
             </View>
         </View>
@@ -80,15 +91,37 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
 const styles = StyleSheet.create({
 
     videoWrapper: {
+        // height: vh * 0.335,
+        // backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        // borderRadius: 25,
+        // borderBottomColor: 'white',
+        // borderWidth: 1,
+    },
+
+    infoWrapper: {
+        display: "flex", 
+        flexDirection: "row", 
+        justifyContent: "space-between", 
+        marginTop: vh * 0.025, 
+        marginHorizontal: vw * 0.05,
+        width: vw * 0.95,
+        paddingRight: 15,
+        paddingTop: 5,
+        backgroundColor: 'rgba(128, 128, 128, 0.25)',
+        borderBottomEndRadius: 25,
+        borderBottomStartRadius: 25,
+        
         
     },
 
     videoTitle: {
-        marginBottom: vh * 0.025,
+        marginBottom: vh * 0.015,
         fontSize: 20,
         fontWeight: '600',
         color: 'white',
         // alignSelf: 'center',
+        marginLeft: "auto",
+        marginRight: "auto",
         marginTop: vh * 0.0025,
         textShadowColor: 'gray',
         textShadowOffset: {width: -1, height: 1},
@@ -101,10 +134,11 @@ const styles = StyleSheet.create({
         // borderWidth: 1,
         // borderColor: 'white',
         height: vh * 0.237,
-        borderRadius: 25,
         backgroundColor: 'black',
         marginTop: vh * 0.015,
     },
+
+
 
 });
 

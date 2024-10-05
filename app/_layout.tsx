@@ -7,6 +7,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as FileSystem from 'expo-file-system';
 import { useEffect, useState } from 'react';
 import { SQLiteProvider } from 'expo-sqlite/next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -64,21 +66,34 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    
+      <RootLayoutNav />
+    
+  );
 }
 
 function RootLayoutNav() {
   return (
     <SQLiteProvider databaseName='test.db'>
+      
       <ThemeProvider value={DarkTheme}>
+        {/* <SafeAreaView style={styles.safeArea}> */}
         <Stack>
-          <Stack.Screen name="index" options={{headerTitle: "Select Map"}}/>
-          <Stack.Screen name="[map]/index" options={{headerTitle: "Select Agent"}}/>
-          <Stack.Screen name="[map]/[agent]/index" options={{ headerTitle: "Select Utility"}}/>
-          <Stack.Screen name="[map]/[agent]/[utility]/index" options={{headerTitle: ""}}/>
+          <Stack.Screen name="index" options={{headerShown: true, headerTitle: "SELECT MAP", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="[map]/index" options={{headerShown: true, headerTitle: "SELECT AGENT", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
+          <Stack.Screen name="[map]/[agent]/index" options={{headerShown: true, headerTitle: "SELECT UTILITY", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
+          <Stack.Screen name="[map]/[agent]/[utility]/index" options={{headerShown: true, headerTitle: "We are Valorant", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"} }}/>
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
+        {/* </SafeAreaView> */}
       </ThemeProvider>
     </SQLiteProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  }
+})
