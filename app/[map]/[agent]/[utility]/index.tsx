@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Alert } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
@@ -21,6 +21,10 @@ const Videos: React.FC = () => {
         attack: true,
         defense: true,
     });
+
+    useEffect(() => {
+        
+    }, [])
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
