@@ -26,7 +26,9 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Valorant Font.ttf"]
+          "fonts": [
+            "./assets/fonts/Valorant Font.ttf"
+          ]
         }
       ],
       [
@@ -49,6 +51,9 @@
       "eas": {
         "projectId": "e4ce3b68-97c0-4a61-b08d-19f3061d668c"
       }
+    },
+    "android": {
+      "package": "com.shaz101.firstexpoapp"
     }
   },
   "react-native-google-mobile-ads": {
