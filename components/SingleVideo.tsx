@@ -64,7 +64,7 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
                     height={vh * 0.3}
                     width={vw * 0.95}
                     videoId={videoId}
-                    initialPlayerParams={{controls: false, color: 'white', rel:false, loop: true}}
+                    initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
                     allowWebViewZoom={true}
                     
                 />
@@ -79,9 +79,9 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
             <View style={styles.infoWrapper}>
                 <Text style={styles.videoTitle}>{title}</Text>
                 <View style={{display: "flex", flexDirection: "row", gap: 12}}>
-                    <MaterialIcons onPress={handleSave} name="save-alt" size={31} color="white" />
+                    <MaterialIcons onPress={handleSave} name="save-alt" size={28} color="white" />
                     {/* <Entypo onPress={handleShare} name="share" size={26} color="white" /> */}
-                    <SimpleLineIcons onPress={handleShare} name="paper-plane" size={24} color="white" style={{marginTop: 3}}/>
+                    <SimpleLineIcons onPress={handleShare} name="paper-plane" size={22} color="white" style={{marginTop: 3}}/>
                 </View>
             </View>
         </View>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 
     videoTitle: {
         marginBottom: vh * 0.015,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: '600',
         color: 'white',
         // alignSelf: 'center',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         marginTop: vh * 0.0025,
         textShadowColor: 'gray',
         textShadowOffset: {width: -1, height: 1},
-        textShadowRadius: 20,
+        textShadowRadius: 10,
         // fontFamily: 'Valorant',
     },
 
