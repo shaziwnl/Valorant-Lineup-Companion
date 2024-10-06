@@ -1,25 +1,26 @@
-import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet, ImageBackground, Button, Text } from 'react-native';
 import { View } from '@/components/Themed';
-import Map from '@/components/Map';
 import { vw, vh } from '@/utils/dimensions'
+import { Link } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import CustomButton from '@/components/CustomButton';
 
 const image = require('../assets/images/wallpaper.jpg');
-const MapList = ['Ascent', 'Bind', 'Lotus', 'Breeze', 'Split', 'Haven', 'Fracture', 'Pearl', 'Icebox'];
 
 export default function TabOneScreen() {
 
   return (
-    <ImageBackground source={image} style={{width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.4)'}}>
-      <View style={styles.container1}>
-        <ScrollView>
-          <View style={styles.container2}>
-            {MapList.map((mapName) => (
-              <Map key={mapName} name={mapName}/>
-            ))}
+    <SafeAreaView>
+      <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
+        <View style={{width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.3)'}}>
+          <View style={styles.container1}>
+            <Text style={{fontFamily: "Valorant", fontSize: 35, color: "white", marginBottom: 25}}>Welcome Agent</Text>
+            <CustomButton title="Browse Lineups" variant='default' href={`/mapselect/`}/>          
+            <CustomButton title="Saved Lineups"  variant='light' href={`/savedlineups/`}/>
           </View>
-        </ScrollView>
-      </View>
-    </ImageBackground>
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
   );
 }
 
@@ -35,7 +36,12 @@ const styles = StyleSheet.create({
   },
 
   container1: {
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: "(0, 0, 0, 1)",
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: "auto",
+    marginBottom: "auto",
+    gap: vh * 0.01,
   },
 
 });

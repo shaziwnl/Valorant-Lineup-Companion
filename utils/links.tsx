@@ -6,6 +6,10 @@ const videoLinks: any = {
   // eg: Kayo Ascent Flashdrive ASite Attack
   // eg: Kayo Ascent Flashdrive ASite Heaven Attack
   // we only want to keep - "A Site Heaven Attack" or "A Site Attack"
+  Abyss: {
+    
+  },
+
   Ascent: {
     Brimstone : {Incendiary:
                 [{title: "A Site A Dice Attack from Lobby", id: '4HMIFp4NVM8'},

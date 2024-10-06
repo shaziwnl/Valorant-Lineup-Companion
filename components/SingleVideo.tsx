@@ -10,9 +10,18 @@ import * as SQLite from 'expo-sqlite'
 import { useSQLiteContext } from 'expo-sqlite/next'
 import WebView from 'react-native-webview'
 import { Modal } from 'react-native'
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 
-function SingleVideo({title, videoId}: {title: string, videoId: string}) {
+function SingleVideo({title, videoId, map, agent, utility, saved}: 
+    {
+        title: string,
+        videoId: string
+        map: string,
+        agent: string,
+        utility: string,
+        saved: boolean,
+    }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalAnimation, setModalAnimation] = useState<"slide" | "none" | "fade">('fade');
     const [modalText, setModalText] = useState('Lineup Saved!');
@@ -50,12 +59,14 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
             // (`DROP TABLE IF EXISTS test`);
 
             await db.execAsync // create the table if it doesnt exist
-            (`CREATE TABLE IF NOT EXISTS test (id TEXT PRIMARY KEY NOT NULL, title TEXT)`)
+            (`CREATE TABLE IF NOT EXISTS test (id TEXT PRIMARY KEY NOT NULL, title TEXT, map TEXT, agent TEXT, utility TEXT)`);
 
             const before = await db.getAllAsync('SELECT * FROM test') // just inspect the table
             console.log(before)
 
-            await db.runAsync(`INSERT INTO test (id, title) VALUES (?, ?)`, [videoId, title]) // run your query
+            await db.runAsync
+            (`INSERT INTO test (id, title, map, agent, utility) VALUES (?, ?, ?, ?, ?)`,
+            [videoId, title, map, agent, utility]) // run your query
 
             const after = await db.getAllAsync('SELECT * FROM test') // inspect the table again
             console.log(after)
@@ -72,7 +83,25 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
             }
             setModalVisible(true);
         } finally {
-            
+            setTimeout(() => {
+                setModalVisible(false);
+            }, 1750)
+        }
+    }
+
+    const handleDelete = async () => {
+        try {
+            console.log('deleting')
+            await db.runAsync(`DELETE FROM test where id = ?`, [videoId]) // run your query
+            setModalText('Lineup Deleted');
+            setModalVisible(true);
+            setTimeout(() => {
+                setModalVisible(false);
+            }, 1750)
+        } catch (error: any) {
+            console.log(error.message);
+            setModalText('Error deleting lineup');
+            setModalVisible(true);
             setTimeout(() => {
                 setModalVisible(false);
             }, 1750)
@@ -85,47 +114,44 @@ function SingleVideo({title, videoId}: {title: string, videoId: string}) {
             if (modalVisible) {
                 setModalVisible(!modalVisible);
             }
-            }}>
+        }}>
             
-        <Modal
-            animationType={modalAnimation}
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-                setModalVisible(!modalVisible);
-            }}
-            >
-                <Pressable
-                    style={[styles.pressable]}
-                    onPress={() => setModalVisible(false)}>
-                    <View style={{}}>
-                        {/* <Text style={styles.modalText}>Lineup Saved!</Text> */}
-                        {/* <Text style={styles.textStyle}>Hide Modal</Text> */}
-                        <Text style={styles.modalText}>{modalText}</Text>
-                    </View>
-                </Pressable>
-        </Modal>
+            <Modal
+                animationType={modalAnimation}
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+                >
+                    <Pressable
+                        style={[styles.pressable]}
+                        onPress={() => setModalVisible(false)}>
+                        <View style={{}}>
+                            <Text style={styles.modalText}>{modalText}</Text>
+                        </View>
+                    </Pressable>
+            </Modal>
 
-                <View style={styles.ytvideo}>
-                    <YoutubeIframe
-                        height={vh * 0.3}
-                        width={vw * 0.95}
-                        videoId={videoId}
-                        initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
-                        allowWebViewZoom={true}
-                    />
-                </View>
+            <View style={styles.ytvideo}>
+                <YoutubeIframe
+                    height={vh * 0.3}
+                    width={vw * 0.95}
+                    videoId={videoId}
+                    initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
+                    allowWebViewZoom={true}
+                />
+            </View>
             
-            
-
             <View style={styles.infoWrapper}>
                 <Text style={styles.videoTitle}>{title}</Text>
                 <View style={{display: "flex", flexDirection: "row", gap: 12}}>
-                    <MaterialIcons onPress={handleSave} name="save-alt" size={28} color="white" />
-                    {/* <Entypo onPress={handleShare} name="share" size={26} color="white" /> */}
+                    {!saved ? <MaterialIcons onPress={handleSave} name="save-alt" size={28} color="white" /> :
+                    <FontAwesome5 name="trash-alt" size={24} color="white" onPress={handleDelete} /> }
                     <SimpleLineIcons onPress={handleShare} name="paper-plane" size={22} color="white" style={{marginTop: 3}}/>
                 </View>
             </View>
+
         </View>
     )
 }

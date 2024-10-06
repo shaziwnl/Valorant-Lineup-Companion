@@ -17,7 +17,7 @@ export default function AgentUtil(props: AgentUtilProps) {
         <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
 
             <View style={styles.container}>
-                <Image style={styles.agentImage} source={agentImages[props.agent]} />    
+                <Image style={styles.agentImage} source={agentImages[props.agent]} />   
                 <Image style={styles.mapImage} source={mapImages[props.map]} />                
             </View>
 
@@ -31,7 +31,7 @@ export default function AgentUtil(props: AgentUtilProps) {
                         <View key={abilityName} style={styles.utilItem}>
                             <Link style={{}} href={`/${props.map}/${props.agent}/${abilityName}/`}>
                                 <View key={abilityName} style={styles.utilityWrapper}>
-                                    <Image style={styles.utilImage} source={utility[0]} />
+                                    <Image style={styles.utilImage} source={utility[0]} />                                    
                                     <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
                                 </View>
                             </Link>
