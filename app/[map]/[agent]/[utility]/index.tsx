@@ -23,10 +23,6 @@ const Videos: React.FC = () => {
     });
 
     useEffect(() => {
-        
-    }, [])
-
-    useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
         if (arr) {
             if (!filters.aSite) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("a site"))) }
@@ -34,18 +30,15 @@ const Videos: React.FC = () => {
             if (!filters.cSite) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("c site"))) }
             if (!filters.middle) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("middle"))) }
             if (!filters.attack) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("attack"))) }
-            if (!filters.defense) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("defense"))) }
-            // console.log(arr)
+            if (!filters.defense) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("defense"))) }   
         }
     }, [filters])
     
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
-            
             <View style={{backgroundColor: 'rgba(0, 0, 0, 0.70)', height: "100%", width: '100%'}}>
                 <View style={styles.container}>
                     <Text style={styles.text}>{utility} Lineups on {map}</Text>
-                
                     <View style={styles.checkboxesContainer}>
                         <Checkbox text="A Site" filters={filters} setFilters={setFilters} property="aSite" />
                         <Checkbox text="B Site" filters={filters} setFilters={setFilters} property="bSite" />
@@ -57,21 +50,18 @@ const Videos: React.FC = () => {
                 </View>
 
                 <ScrollView>
-                    
                     {arr?.map((item: VideoLink) => {
                         const words = item.title.split(" ");
                         const title = words.slice(2).join(" ");
                         return (
                         <View key={item.id} style={styles.videoContainer}>
-                            
-                            <SingleVideo key={item.id} title={title} videoId={item.id}/>
-                            
+                            <SingleVideo key={item.id} title={title} videoId={item.id} map={map as string} 
+                                agent={agent as string} utility={utility as string} saved={false}/>
                         </View>
                         )
                     })}
                 </ScrollView>
             </View>    
-            
         </ImageBackground>
     );
 };

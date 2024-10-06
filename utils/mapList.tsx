@@ -1,6 +1,7 @@
 import { MapImages } from "@/interfaces/MapImages";
 
 const mapImages: MapImages = {
+    Abyss: require('../assets/images/maps/Abyss.png'),
     Ascent: require('../assets/images/maps/Ascent.png'),
     Bind: require('../assets/images/maps/Bind.png'),
     Lotus: require('../assets/images/maps/Lotus.png'),

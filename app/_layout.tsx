@@ -80,7 +80,9 @@ function RootLayoutNav() {
       <ThemeProvider value={DarkTheme}>
         {/* <SafeAreaView style={styles.safeArea}> */}
         <Stack>
-          <Stack.Screen name="index" options={{headerShown: true, headerTitle: "SELECT MAP", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="index" options={{headerShown: false, headerTitle: "WELCOME", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="mapselect" options={{headerShown: true, headerTitle: "SELECT MAP", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="savedlineups" options={{headerShown: true, headerTitle: "SAVED LINEUPS", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
           <Stack.Screen name="[map]/index" options={{headerShown: true, headerTitle: "SELECT AGENT", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
           <Stack.Screen name="[map]/[agent]/index" options={{headerShown: true, headerTitle: "SELECT UTILITY", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
           <Stack.Screen name="[map]/[agent]/[utility]/index" options={{headerShown: true, headerTitle: "We are Valorant", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"} }}/>
