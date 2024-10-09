@@ -14,7 +14,7 @@ export default function TabOneScreen() {
       <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
         <View style={{width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.3)'}}>
           <View style={styles.container1}>
-            <Text style={{fontFamily: "Valorant", fontSize: 35, color: "white", marginBottom: 25}}>Welcome Agent</Text>
+            <Text style={[{fontFamily: "Valorant", fontSize: 35, color: "white", marginBottom: 25}, styles.welcome]}>Welcome Agent</Text>
             <CustomButton title="Browse Lineups" variant='default' href={`/mapselect/`}/>          
             <CustomButton title="Saved Lineups"  variant='light' href={`/savedlineups/`}/>
           </View>
@@ -25,6 +25,13 @@ export default function TabOneScreen() {
 }
 
 const styles = StyleSheet.create({
+
+  welcome: {
+    textShadowColor: '#ff4655',
+    textShadowOffset: {width: 0, height: 0},
+    textShadowRadius: 7,
+  },
+
   container2: {
     backgroundColor: 'transparent',
     flex: 1,
