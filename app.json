@@ -53,7 +53,12 @@
       }
     },
     "android": {
-      "package": "com.shaz101.firstexpoapp"
+      "googleServicesFile": "./google-services.json",
+      "package": "com.theSymbol.vlrcomp"
+    },
+    "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "com.theSymbol.vlrcomp"
     }
   },
   "react-native-google-mobile-ads": {
