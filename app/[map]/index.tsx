@@ -17,7 +17,7 @@ export default function AgentSelect() {
                         ]
 
     const { map } = useLocalSearchParams();
-    const image = require('../../assets/images/wallpaper.jpg');
+    const image = require('@/assets/images/wallpaper.jpg');
 
     return (
         <ImageBackground source={image} style={{width: '100%', height: '100%'}}>

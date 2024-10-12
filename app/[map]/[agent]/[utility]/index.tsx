@@ -16,7 +16,7 @@ const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
 });
 
 const Videos: React.FC = () => {
-    const bg = require('../../../../assets/images/wallpaper.jpg');
+    const bg = require('@/assets/images/wallpaper.jpg');
     const { map, agent, utility } = useLocalSearchParams();
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
     const [loaded, setLoaded] = useState(false);
