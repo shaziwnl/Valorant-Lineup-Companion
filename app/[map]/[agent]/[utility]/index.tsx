@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Platform, Button } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
@@ -6,12 +6,20 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { VideoLink } from '@/interfaces/VideoLink';
-import { Link } from 'expo-router';
+import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : Platform.OS == 'android' ? 
+                'ca-app-pub-8591491079519050/6514583321' : 'ca-app-pub-8591491079519050/1629922300'
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+    keywords: ['valorant', 'lineups', 'gaming', 'esports'],    
+});
 
 const Videos: React.FC = () => {
     const bg = require('../../../../assets/images/wallpaper.jpg');
     const { map, agent, utility } = useLocalSearchParams();
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
+    const [loaded, setLoaded] = useState(false);
 
     const [filters, setFilters] = useState({
         aSite: true,
@@ -21,6 +29,24 @@ const Videos: React.FC = () => {
         attack: true,
         defense: true,
     });
+
+    useEffect(() => {
+        const loaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
+            setLoaded(true);
+            console.log("ad loaded")
+        })
+        interstitial.load(); // Call then when user has watched 5 videos
+        return loaded
+    }, []);
+
+    useEffect(() => {
+        const close = interstitial.addAdEventListener(AdEventType.CLOSED, () => {
+            setLoaded(false);
+            console.log("ad closed");
+            interstitial.load();
+        })
+        return close
+    }, []);
 
     useEffect(() => {
         setArr(videoLinks[map as string][agent as string][utility as string])
@@ -33,6 +59,12 @@ const Videos: React.FC = () => {
             if (!filters.defense) { setArr((arr: Array<VideoLink>) => arr.filter((item) => !item.title.toLowerCase().includes("defense"))) }   
         }
     }, [filters])
+
+    function showAd() {
+        if (loaded) 
+        { interstitial.show() }
+    }
+
     
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
@@ -61,7 +93,8 @@ const Videos: React.FC = () => {
                         )
                     })}
                 </ScrollView>
-            </View>    
+                <Button color='black' title='Show ad' onPress={showAd}></Button>
+            </View>
         </ImageBackground>
     );
 };
