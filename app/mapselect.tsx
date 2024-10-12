@@ -3,7 +3,7 @@ import { View } from '@/components/Themed';
 import Map from '@/components/Map';
 import { vw, vh } from '@/utils/dimensions'
 
-const image = require('../assets/images/wallpaper.jpg');
+const image = require('@/assets/images/wallpaper.jpg');
 const MapList = ['Abyss', 'Ascent', 'Bind', 'Breeze','Fracture', 'Haven', 'Icebox', 'Lotus', 'Pearl', 'Split'];
 
 export default function AgentSelect() {

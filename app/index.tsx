@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomButton from '@/components/CustomButton';
 
-const image = require('../assets/images/wallpaper.jpg');
+const image = require('@/assets/images/wallpaper.jpg');
 
 export default function TabOneScreen() {
 

@@ -9,7 +9,7 @@ import { useSQLiteContext } from 'expo-sqlite/next';
 import { VideoLink } from '@/interfaces/VideoLink';
 import SingleVideo from '@/components/SingleVideo';
 
-const image = require('../assets/images/wallpaper.jpg');
+const image = require('@/assets/images/wallpaper.jpg');
 
 export default function SavedLineups() {
 

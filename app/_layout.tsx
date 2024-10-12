@@ -46,8 +46,8 @@ export default function RootLayout() {
   }, []) 
 
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    Valorant: require('../assets/fonts/Valorant Font.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    Valorant: require('@/assets/fonts/Valorant Font.ttf'),
     ...FontAwesome.font,
   });
 
