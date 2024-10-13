@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { VideoLink } from '@/interfaces/VideoLink';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
 
 const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : Platform.OS == 'android' ? 
@@ -15,12 +16,13 @@ const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
     keywords: ['valorant', 'lineups', 'gaming', 'esports'],    
 });
 
+const bg = require('@/assets/images/wallpaper.jpg');
+
 const Videos: React.FC = () => {
-    const bg = require('@/assets/images/wallpaper.jpg');
     const { map, agent, utility } = useLocalSearchParams();
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
     const [loaded, setLoaded] = useState(false);
-
+    const [timesClicked, setTimesClicked] = useState(0);
     const [filters, setFilters] = useState({
         aSite: true,
         bSite: true,
@@ -31,11 +33,25 @@ const Videos: React.FC = () => {
     });
 
     useEffect(() => {
+        const loadTimesClicked = async () => {
+            try {
+                const value = await AsyncStorage.getItem('timesClicked');
+                if (value !== null) {
+                    setTimesClicked(parseInt(value));
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        loadTimesClicked();
+    }, [])
+
+    useEffect(() => {
         const loaded = interstitial.addAdEventListener(AdEventType.LOADED, () => {
             setLoaded(true);
             console.log("ad loaded")
         })
-        interstitial.load(); // Call then when user has watched 5 videos
+        interstitial.load();
         return loaded
     }, []);
 
@@ -60,9 +76,24 @@ const Videos: React.FC = () => {
         }
     }, [filters])
 
+    useEffect(() => {
+        if (timesClicked % 8 === 0 && timesClicked !== 0) {
+            showAd();
+        }
+        console.log(timesClicked);
+    }, [timesClicked])
+
     function showAd() {
+        console.log(loaded);
         if (loaded) 
         { interstitial.show() }
+    }
+
+    async function incrementTimesClicked() {
+        let newTimesClicked = timesClicked + 1;
+        if (newTimesClicked == 48) { newTimesClicked = 8 }
+        await AsyncStorage.setItem('timesClicked', newTimesClicked.toString());
+        setTimesClicked(newTimesClicked);
     }
 
     
@@ -93,7 +124,7 @@ const Videos: React.FC = () => {
                         )
                     })}
                 </ScrollView>
-                <Button color='black' title='Show ad' onPress={showAd}></Button>
+                <Button color='black' title='Show ad' onPress={incrementTimesClicked}></Button>
             </View>
         </ImageBackground>
     );
