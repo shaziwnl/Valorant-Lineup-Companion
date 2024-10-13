@@ -14,7 +14,7 @@ const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
 export default function AgentUtil(props: AgentUtilProps) {
 
     return (
-        <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
+        <ImageBackground source={require('@/assets/images/wallpaper.jpg')} style={styles.wallpaper}>
 
             <View style={styles.container}>
                 <Image style={styles.agentImage} source={agentImages[props.agent]} />   

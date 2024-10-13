@@ -21,7 +21,7 @@ SplashScreen.preventAutoHideAsync();
 
 const loadDatabase = async () => {
   const dbName = "test.db";
-  const dbAsset = require("../data/test.db");
+  const dbAsset = require("@/data/test.db");
   const dbUri = Asset.fromModule(dbAsset).uri;
   const dbFilePath = `${FileSystem.documentDirectory}SQLite/${dbName}`;
 
@@ -46,8 +46,8 @@ export default function RootLayout() {
   }, []) 
 
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    Valorant: require('../assets/fonts/Valorant Font.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    Valorant: require('@/assets/fonts/Valorant Font.ttf'),
     ...FontAwesome.font,
   });
 

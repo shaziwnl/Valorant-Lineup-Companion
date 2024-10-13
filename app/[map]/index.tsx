@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { View, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import Agent from '@/components/Agent';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { vh, vw } from '@/utils/dimensions';
@@ -17,7 +17,7 @@ export default function AgentSelect() {
                         ]
 
     const { map } = useLocalSearchParams();
-    const image = require('../../assets/images/wallpaper.jpg');
+    const image = require('@/assets/images/wallpaper.jpg');
 
     return (
         <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
