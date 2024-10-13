@@ -1,12 +1,8 @@
-import { ScrollView, StyleSheet, ImageBackground, Button, Text } from 'react-native';
+import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import { View } from '@/components/Themed';
 import { vw, vh } from '@/utils/dimensions'
-import { Link } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import CustomButton from '@/components/CustomButton';
 import { useEffect, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite/next';
-import { VideoLink } from '@/interfaces/VideoLink';
 import SingleVideo from '@/components/SingleVideo';
 
 const image = require('@/assets/images/wallpaper.jpg');

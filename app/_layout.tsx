@@ -21,7 +21,7 @@ SplashScreen.preventAutoHideAsync();
 
 const loadDatabase = async () => {
   const dbName = "test.db";
-  const dbAsset = require("../data/test.db");
+  const dbAsset = require("@/data/test.db");
   const dbUri = Asset.fromModule(dbAsset).uri;
   const dbFilePath = `${FileSystem.documentDirectory}SQLite/${dbName}`;
 

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { View, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import Agent from '@/components/Agent';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { vh, vw } from '@/utils/dimensions';
