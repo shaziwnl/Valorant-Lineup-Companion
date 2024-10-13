@@ -8,12 +8,11 @@ import { Entypo } from '@expo/vector-icons'
 import { Alert, Share } from 'react-native'
 import * as SQLite from 'expo-sqlite'
 import { useSQLiteContext } from 'expo-sqlite/next'
-import WebView from 'react-native-webview'
 import { Modal } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import WebView from 'react-native-webview'
 
-
-function SingleVideo({title, videoId, map, agent, utility, saved}: 
+function SingleVideo({title, videoId, map, agent, utility, saved, increment}: 
     {
         title: string,
         videoId: string
@@ -21,6 +20,7 @@ function SingleVideo({title, videoId, map, agent, utility, saved}:
         agent: string,
         utility: string,
         saved: boolean,
+        increment: () => void
     }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalAnimation, setModalAnimation] = useState<"slide" | "none" | "fade">('fade');
@@ -134,13 +134,19 @@ function SingleVideo({title, videoId, map, agent, utility, saved}:
             </Modal>
 
             <View style={styles.ytvideo}>
-                <YoutubeIframe
-                    height={vh * 0.3}
-                    width={vw * 0.95}
-                    videoId={videoId}
-                    initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
-                    allowWebViewZoom={true}
-                />
+                <Pressable onPress={increment}>
+                    <YoutubeIframe
+                        height={vh * 0.3}
+                        width={vw * 0.95}
+                        videoId={videoId}
+                        initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
+                        allowWebViewZoom={true}
+                    />
+                    {/* <WebView 
+                        source={{uri: `https://www.youtube.com/watch?v=${videoId}`}}
+                        style={{height: vh * 0.3, width: vw * 0.95}}
+                    /> */}
+                </Pressable>
             </View>
             
             <View style={styles.infoWrapper}>

@@ -22,7 +22,7 @@ const Videos: React.FC = () => {
     const { map, agent, utility } = useLocalSearchParams();
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
     const [loaded, setLoaded] = useState(false);
-    const [timesClicked, setTimesClicked] = useState(0);
+    const [timesClicked, setTimesClicked] = useState<number>(0);
     const [filters, setFilters] = useState({
         aSite: true,
         bSite: true,
@@ -84,7 +84,6 @@ const Videos: React.FC = () => {
     }, [timesClicked])
 
     function showAd() {
-        console.log(loaded);
         if (loaded) 
         { interstitial.show() }
     }
@@ -118,13 +117,14 @@ const Videos: React.FC = () => {
                         const title = words.slice(2).join(" ");
                         return (
                         <View key={item.id} style={styles.videoContainer}>
-                            <SingleVideo key={item.id} title={title} videoId={item.id} map={map as string} 
-                                agent={agent as string} utility={utility as string} saved={false}/>
+                            <SingleVideo key={item.id} title={title} videoId={item.id} map={map as string}
+                                         agent={agent as string} utility={utility as string} saved={false}
+                                         increment={incrementTimesClicked}/>
                         </View>
                         )
                     })}
                 </ScrollView>
-                <Button color='black' title='Show ad' onPress={incrementTimesClicked}></Button>
+                {/* <Button color='black' title='Show ad' onPress={incrementTimesClicked}></Button> */}
             </View>
         </ImageBackground>
     );
@@ -141,12 +141,9 @@ const styles = StyleSheet.create({
     },
 
     videoContainer: {
-        // display: 'flex',
-        // flexDirection: 'row',
         flex: 1,
         alignItems: 'center',
         marginBottom: vh * 0.02,
-        // justifyContent: 'center',
     },
 
     text: {
