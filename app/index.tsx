@@ -16,6 +16,7 @@ export default function TabOneScreen() {
             <Text style={[{fontFamily: "Valorant", fontSize: 35, color: "white", marginBottom: 25}, styles.welcome]}>Welcome Agent</Text>
             <CustomButton title="Browse Lineups" variant='default' href={`/mapselect/`}/>          
             <CustomButton title="Saved Lineups"  variant='light' href={`/savedlineups/`}/>
+            <CustomButton title="Spike Timer" variant='default' href={`/timer/`}/>          
           </View>
         </View>
       </ImageBackground>
