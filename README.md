@@ -62,6 +62,7 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 ## Demo and Screenshots
 
 <img src="https://github.com/user-attachments/assets/5a89c707-f97f-43c5-9b15-3c1078268214" width="200" height="400" />
+<img src="https://github.com/user-attachments/assets/c2fe4433-6688-4f62-bbd1-018a8864b2d9" width="200" height="400" />
 
 
 <!-- CONTACT -->
