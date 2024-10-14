@@ -119,9 +119,10 @@ const Videos: React.FC = () => {
                         const title = words.slice(2).join(" ");
                         return (
                         <View key={item.id} style={styles.videoContainer}>
-                            <SingleVideo key={item.id} title={title} videoId={item.id} map={map as string}
-                                         agent={agent as string} utility={utility as string} saved={false}
-                                         increment={incrementTimesClicked}/>
+                            <SingleVideo key={item.id} title={title} videoId={item.id}
+                                map={map as string} agent={agent as string} saved={false}
+                                increment={incrementTimesClicked} utility={utility as string}
+                            />
                         </View>
                         )
                     })}
