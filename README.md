@@ -61,6 +61,7 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 <!-- DEMO -->
 ## Demo and Screenshots
 
+![home_screen](https://github.com/user-attachments/assets/5a89c707-f97f-43c5-9b15-3c1078268214)
 
 
 <!-- CONTACT -->
