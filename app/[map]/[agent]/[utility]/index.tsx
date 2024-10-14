@@ -23,6 +23,7 @@ const Videos: React.FC = () => {
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
     const [loaded, setLoaded] = useState(false);
     const [timesClicked, setTimesClicked] = useState<number>(0);
+    const [totalTimesClicked, setTotalTimesClicked] = useState<number>(0);
     const [filters, setFilters] = useState({
         aSite: true,
         bSite: true,
@@ -37,7 +38,8 @@ const Videos: React.FC = () => {
             try {
                 const value = await AsyncStorage.getItem('timesClicked');
                 if (value !== null) {
-                    setTimesClicked(parseInt(value));
+                    setTimesClicked(parseInt(value) % 8);
+                    setTotalTimesClicked(parseInt(value));
                 }
             } catch (e) {
                 console.log(e);
@@ -79,6 +81,7 @@ const Videos: React.FC = () => {
     useEffect(() => {
         if (timesClicked % 8 === 0 && timesClicked !== 0) {
             showAd();
+            setTimesClicked(0);
         }
         console.log(timesClicked);
     }, [timesClicked])
@@ -89,10 +92,9 @@ const Videos: React.FC = () => {
     }
 
     async function incrementTimesClicked() {
-        let newTimesClicked = timesClicked + 1;
-        if (newTimesClicked == 48) { newTimesClicked = 8 }
-        await AsyncStorage.setItem('timesClicked', newTimesClicked.toString());
-        setTimesClicked(newTimesClicked);
+        await AsyncStorage.setItem('timesClicked', (totalTimesClicked + 1).toString());
+        setTotalTimesClicked(totalTimesClicked + 1);
+        setTimesClicked(timesClicked + 1);
     }
 
     
