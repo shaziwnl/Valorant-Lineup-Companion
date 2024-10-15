@@ -38,7 +38,7 @@ const Videos: React.FC = () => {
             try {
                 const value = await AsyncStorage.getItem('timesClicked');
                 if (value !== null) {
-                    setTimesClicked(parseInt(value) % 8);
+                    setTimesClicked(parseInt(value) % 12);
                     setTotalTimesClicked(parseInt(value));
                 }
             } catch (e) {
@@ -79,7 +79,7 @@ const Videos: React.FC = () => {
     }, [filters])
 
     useEffect(() => {
-        if (timesClicked % 8 === 0 && timesClicked !== 0) {
+        if (timesClicked % 12 === 0 && timesClicked !== 0) {
             showAd();
             setTimesClicked(0);
         }

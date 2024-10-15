@@ -20,7 +20,7 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment}:
         agent: string,
         utility: string,
         saved: boolean,
-        increment: () => void
+        increment?: () => void
     }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalAnimation, setModalAnimation] = useState<"slide" | "none" | "fade">('fade');
