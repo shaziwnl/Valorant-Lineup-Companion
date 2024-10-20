@@ -74,6 +74,8 @@ Sharang Goel - sharang.goel@uwaterloo.ca
 
 Anshul Kumar - anshulkumarg0re@gmail.com
 
+Sajal Chandra - sajalchandra124@gmail.com 
+
 
 
 
