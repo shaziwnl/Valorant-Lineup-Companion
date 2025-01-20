@@ -84,6 +84,7 @@ const Videos: React.FC = () => {
             setTimesClicked(0);
         }
         console.log(timesClicked);
+        console.log(totalTimesClicked);
     }, [timesClicked])
 
     function showAd() {

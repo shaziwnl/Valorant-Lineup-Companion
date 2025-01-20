@@ -5,16 +5,10 @@ import { vh, vw } from '@/utils/dimensions';
 
 export default function AgentSelect() {
     
-    const AgentList =   [
-                        'Astra',    'Breach',  'Brimstone',
-                        'Chamber',  'Clove',   'Cypher',
-                        'Deadlock', 'Fade',    'Gekko',
-                        'Harbor',   'Iso',     'Jett',
-                        'Kayo',     'Killjoy', 'Neon',
-                        'Omen',     'Phoenix', 'Raze',
-                        'Reyna',    'Sage',    'Skye',
-                        'Sova',     'Viper',   'Yoru'
-                        ]
+    const AgentList = [ 'Astra', 'Breach', 'Brimstone', 'Chamber', 'Clove', 'Cypher',
+                        'Deadlock', 'Fade', 'Gekko', 'Harbor', 'Iso', 'Jett', 'Kayo',     
+                        'Killjoy', 'Neon', 'Omen', 'Phoenix', 'Raze', 'Reyna', 'Sage',    
+                        'Skye', 'Sova', 'Viper', 'Yoru' ]
 
     const { map } = useLocalSearchParams();
     const image = require('@/assets/images/wallpaper.jpg');

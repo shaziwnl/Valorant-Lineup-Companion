@@ -1,18 +1,16 @@
 import React, { memo, useEffect, useState } from 'react'
-import { Video, ResizeMode } from 'expo-av'
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import {vh, vw} from '@/utils/dimensions'
 import YoutubeIframe from 'react-native-youtube-iframe'
 import { MaterialIcons, SimpleLineIcons } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
 import { Alert, Share } from 'react-native'
 import * as SQLite from 'expo-sqlite'
 import { useSQLiteContext } from 'expo-sqlite/next'
 import { Modal } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import WebView from 'react-native-webview'
+import { Lineup } from '@/interfaces/Lineup'
 
-function SingleVideo({title, videoId, map, agent, utility, saved, increment}: 
+function SingleVideo({title, videoId, map, agent, utility, saved, increment, setLineups}: 
     {
         title: string,
         videoId: string
@@ -21,6 +19,7 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment}:
         utility: string,
         saved: boolean,
         increment?: () => void
+        setLineups?: React.Dispatch<React.SetStateAction<Lineup[]>>
     }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalAnimation, setModalAnimation] = useState<"slide" | "none" | "fade">('fade');
@@ -91,21 +90,21 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment}:
 
     const handleDelete = async () => {
         try {
-            console.log('deleting')
+            console.log("deleting");
             await db.runAsync(`DELETE FROM test where id = ?`, [videoId]) // run your query
-            setModalText('Lineup Deleted');
-            setModalVisible(true);
-            setTimeout(() => {
-                setModalVisible(false);
-            }, 1750)
+            setLineups!((prev) => prev.filter((lineup) => lineup.id !== videoId));
+            console.log("deleted");
         } catch (error: any) {
             console.log(error.message);
-            setModalText('Error deleting lineup');
+            setModalText("Error deleting lineup");
             setModalVisible(true);
             setTimeout(() => {
                 setModalVisible(false);
             }, 1750)
-        }
+        } 
+
+          
+
     }
 
     return (
@@ -139,13 +138,9 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment}:
                         height={vh * 0.3}
                         width={vw * 0.95}
                         videoId={videoId}
-                        initialPlayerParams={{controls: true, color: 'white', rel:false, loop: true}}
+                        initialPlayerParams={{controls: true, color: 'white', rel:false, loop: false}}
                         allowWebViewZoom={true}
                     />
-                    {/* <WebView 
-                        source={{uri: `https://www.youtube.com/watch?v=${videoId}`}}
-                        style={{height: vh * 0.3, width: vw * 0.95}}
-                    /> */}
                 </Pressable>
             </View>
             

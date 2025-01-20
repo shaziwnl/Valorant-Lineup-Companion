@@ -4,12 +4,13 @@ import { vw, vh } from '@/utils/dimensions'
 import { useEffect, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite/next';
 import SingleVideo from '@/components/SingleVideo';
+import { Lineup } from '@/interfaces/Lineup';
 
 const image = require('@/assets/images/wallpaper.jpg');
 
 export default function SavedLineups() {
 
-    const [lineups, setLineups] = useState([]);
+    const [lineups, setLineups] = useState<Lineup[]>([]);
     const db = useSQLiteContext();
 
     useEffect(() => {
@@ -31,16 +32,10 @@ export default function SavedLineups() {
       <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
         <View style={{width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)'}}>
             <ScrollView>        
-                    {lineups?.map((item: {
-                        agent: string;
-                        id: string;
-                        map: string;
-                        title: string;
-                        utility: string;
-                    }) => {
+                    {lineups.map((item) => {
                         return (
                         <View key={item.id} style={styles.videoContainer}>
-                            <SingleVideo key={item.id} title={item.title} videoId={item.id} saved={true} 
+                            <SingleVideo setLineups={setLineups} key={item.id} title={item.title} videoId={item.id} saved={true} 
                                 map={item.map as string} agent={item.agent as string} utility={item.utility as string}/>
                         </View>
                         )
