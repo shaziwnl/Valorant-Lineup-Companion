@@ -4,7 +4,6 @@ import {vh, vw} from '@/utils/dimensions'
 import YoutubeIframe from 'react-native-youtube-iframe'
 import { MaterialIcons, SimpleLineIcons } from '@expo/vector-icons'
 import { Alert, Share } from 'react-native'
-import * as SQLite from 'expo-sqlite'
 import { useSQLiteContext } from 'expo-sqlite/next'
 import { Modal } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
@@ -160,11 +159,7 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment, set
 const styles = StyleSheet.create({
 
     videoWrapper: {
-        // height: vh * 0.335,
-        // backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        // borderRadius: 25,
-        // borderBottomColor: 'white',
-        // borderWidth: 1,
+        
     },
 
     centeredView: {

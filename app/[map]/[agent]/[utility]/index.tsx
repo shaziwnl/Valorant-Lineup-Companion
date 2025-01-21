@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { VideoLink } from '@/interfaces/VideoLink';
+import { useSQLiteContext } from 'expo-sqlite/next'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
 

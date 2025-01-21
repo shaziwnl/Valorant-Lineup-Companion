@@ -46,6 +46,7 @@
 ## About
 Valorant Lineup Companion is the most up-to-date Valorant lineup app for all maps and agents
 Available on both IOS and Android, this handy tool ensures that you never play a match with a forgotten lineup and always remain the X-Factor for your team
+We are currently in development, we plan to launch by 1st March 2025. Your patience and understanding are highly appreciated
 
 
 ### Technologies Used
@@ -60,14 +61,21 @@ Available on both IOS and Android, this handy tool ensures that you never play a
 
 <!-- DEMO -->
 ## Demo and Screenshots
-
-
+<img src="https://github.com/user-attachments/assets/abc34ca5-6c23-4e8f-ab36-4d36c210d067" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/c2fe4433-6688-4f62-bbd1-018a8864b2d9" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/861f23ff-6d77-42bd-a7d4-6fea532c7d47" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/f9bfa7fc-fa0e-42e2-8ff5-c03be67c2f48" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/c9395fae-7498-4652-b637-a26f0bab5b89" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/e67c2fb3-5753-4b9e-9f29-b9a8c249460e" width="175" height="400" />
+<img src="https://github.com/user-attachments/assets/4356b96b-a12e-4d03-871f-6b003a8f7be7" width="175" height="400" />
 
 <!-- CONTACT -->
 ## Contact
 Sharang Goel - sharang.goel@uwaterloo.ca
 
 Anshul Kumar - anshulkumarg0re@gmail.com
+
+Sajal Chandra - sajalchandra124@gmail.com 
 
 
 
