@@ -47,8 +47,8 @@ expo-env.d.ts
 android/
 
 # Google Services
-google-services.json
-GoogleService-Info.plist
+# google-services.json
+# GoogleService-Info.plist
 
 # Data
 data/
