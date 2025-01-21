@@ -14,11 +14,11 @@ const adUnitId = __DEV__ ? TestIds.ADAPTIVE_BANNER : Platform.OS == 'android'
 export default function AgentUtil(props: AgentUtilProps) {
 
     return (
-        <ImageBackground source={require('../assets/images/wallpaper.jpg')} style={styles.wallpaper}>
+        <ImageBackground source={require('@/assets/images/wallpaper.jpg')} style={styles.wallpaper}>
 
             <View style={styles.container}>
-                <Image style={styles.agentImage} source={agentImages[props.agent]} />
-                <Image style={styles.mapImage} source={mapImages[props.map]} />
+                <Image style={styles.agentImage} source={agentImages[props.agent]} />   
+                <Image style={styles.mapImage} source={mapImages[props.map]} />                
             </View>
 
             <View style={styles.container2}>
@@ -28,23 +28,25 @@ export default function AgentUtil(props: AgentUtilProps) {
                     const filename = parts[parts.length - 1]; // Get the last part after splitting by '/'
                     const abilityName = filename.split(".")[0]; // Get the part before the extension by splitting by '.'
                     return (
-                        <Link key={abilityName} href={`/get-lineups/${props.map}/${props.agent}/${abilityName}`}>
-                            <View key={abilityName} style={styles.utilityWrapper}>
-                                <Image style={styles.utilImage} source={utility[0]} />
-                                <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
-                            </View>
-                        </Link>
+                        <View key={abilityName} style={styles.utilItem}>
+                            <Link style={{}} href={`/${props.map}/${props.agent}/${abilityName}/`}>
+                                <View key={abilityName} style={styles.utilityWrapper}>
+                                    <Image style={styles.utilImage} source={utility[0]} />                                    
+                                    <Text style={[styles.title]}>{abilityName.toUpperCase()}</Text>
+                                </View>
+                            </Link>
+                        </View>
                     )
                 })}
 
-                <View style={{marginTop: "auto"}}>
-                    <BannerAd
-                        unitId={adUnitId}
-                        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-                    />
-                </View>
+                
             </View>
-
+            <View style={{marginTop: "auto", backgroundColor: 'rgba(0, 0, 0, 0.7)',}}>
+                <BannerAd
+                    unitId={adUnitId}
+                    size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                />
+            </View>
             
 
         </ImageBackground>  
@@ -59,10 +61,12 @@ const styles = StyleSheet.create({
     },
 
     utilityWrapper: {
-        paddingHorizontal: vh * 0.02,
+        // paddingHorizontal: vh * 0.02,
         flexDirection: 'row',
         alignItems: 'center',
-        gap: vh * 0.05,
+        justifyContent: 'center',
+        gap: vw * 0.05,
+        paddingLeft: 15,
     },
 
     title: {
@@ -80,16 +84,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderBottomWidth: 2,
         borderColor: 'white',
-        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        backgroundColor: 'rgba(0, 0, 0, 0.25)',
+        // backgroundColor: 'rgba(225, 225, 225, 0.1)',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: vh * 0.015,
     },
 
     container2: {
-        paddingTop: vh * 0.04,
+        // paddingTop: vh * 0.04,
         flex: 7,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        gap: vh * 0.05,
+        alignItems: 'center',
     },
 
     agentImage: {
@@ -98,17 +104,23 @@ const styles = StyleSheet.create({
     },
 
     mapImage: {
-        // width: 250,
-        width: vw * 0.65,
-        height: vh * 0.2,
+        width: vw * 0.70,
+        height: vh * 0.25,
         borderRadius: 20,
-        borderColor: 'white',
-        borderWidth: 2,
+        borderLeftWidth: 1,
+        borderWidth: 1,
+        
     },
-
 
     wallpaper: {
         width: '100%',
         height: '100%',
+    },
+
+    utilItem: {
+        borderBottomColor: 'white',
+        borderBottomWidth: 1,
+        width: vw,
+        padding: 10,
     }
 })

@@ -15,19 +15,6 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "supportsTablet": true,
-      "bundleIdentifier": "com.theSymbol.vlrcomp"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "googleServicesFile": "./google-services.json",
-      "package": "com.theSymbol.vlrcomp"
-    },
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -37,15 +24,22 @@
       "@react-native-firebase/app",
       "expo-router",
       [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Valorant Font.ttf"
+          ]
+        }
+      ],
+      [
         "expo-build-properties",
         {
           "ios": {
             "useFrameworks": "static"
           }
         }
-      ]
-      
-      
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
@@ -57,6 +51,14 @@
       "eas": {
         "projectId": "e4ce3b68-97c0-4a61-b08d-19f3061d668c"
       }
+    },
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.theSymbol.vlrcomp"
+    },
+    "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "com.theSymbol.vlrcomp"
     }
   },
   "react-native-google-mobile-ads": {

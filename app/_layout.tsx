@@ -1,9 +1,14 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, ThemeProvider } from '@react-navigation/native';
+import { Asset } from 'expo-asset';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import * as FileSystem from 'expo-file-system';
+import { useEffect, useState } from 'react';
+import { SQLiteProvider } from 'expo-sqlite/next';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -14,10 +19,35 @@ export {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+const loadDatabase = async () => {
+  const dbName = "test.db";
+  const dbAsset = require("@/data/test.db");
+  const dbUri = Asset.fromModule(dbAsset).uri;
+  const dbFilePath = `${FileSystem.documentDirectory}SQLite/${dbName}`;
+
+  const fileInfo = await FileSystem.getInfoAsync(dbFilePath);
+  if (!fileInfo.exists) {
+      await FileSystem.makeDirectoryAsync(
+          `${FileSystem.documentDirectory}SQLite`,
+          { intermediates: true}
+      );
+      await FileSystem.downloadAsync(dbUri, dbFilePath)
+  }
+}
+
 export default function RootLayout() {
+
+  const [dbLoaded, setDbLoaded] = useState<boolean>(false)
+
+  useEffect(() => {
+      loadDatabase()
+      .then(() => setDbLoaded(true))
+      .catch((e) => console.error(e))
+  }, []) 
+
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    Valorant: require('../assets/fonts/Valorant Font.ttf'),
+    SpaceMono: require('@/assets/fonts/SpaceMono-Regular.ttf'),
+    Valorant: require('@/assets/fonts/Valorant Font.ttf'),
     ...FontAwesome.font,
   });
 
@@ -36,20 +66,34 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    
+      <RootLayoutNav />
+    
+  );
 }
 
 function RootLayoutNav() {
-
   return (
-    <ThemeProvider value={DarkTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{headerTitle: "Select Map"}}/>
-        <Stack.Screen name="agent-select/[map]" options={{headerTitle: "Select Agent"}}/>
-        <Stack.Screen name="util-select/[map]/[agent]" options={{ headerTitle: "Select Utility"}}/>
-        <Stack.Screen name="get-lineups/[map]/[agent]/[utility]" options={{headerTitle: ""}}/>
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <SQLiteProvider databaseName='test.db'>
+      <ThemeProvider value={DarkTheme}>
+        <Stack>
+          <Stack.Screen name="index" options={{headerShown: false, headerTitle: "WELCOME", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="mapselect" options={{headerShown: true, headerTitle: "SELECT MAP", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="savedlineups" options={{headerShown: true, headerTitle: "SAVED LINEUPS", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="timer" options={{headerShown: true, headerTitle: "SPIKE TIMER", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"},}}/>
+          <Stack.Screen name="[map]/index" options={{headerShown: true, headerTitle: "SELECT AGENT", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
+          <Stack.Screen name="[map]/[agent]/index" options={{headerShown: true, headerTitle: "SELECT UTILITY", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"}}}/>
+          <Stack.Screen name="[map]/[agent]/[utility]/index" options={{headerShown: true, headerTitle: "We are Valorant", headerTitleAlign: "center" , headerTitleStyle:{fontFamily: "Valorant"} }}/>
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        </Stack>
+      </ThemeProvider>
+    </SQLiteProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  }
+})

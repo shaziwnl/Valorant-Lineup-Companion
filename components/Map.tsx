@@ -7,32 +7,35 @@ import { MapProps } from '@/interfaces/props/MapProps';
 export default function Map(props: MapProps) {
         
     return (
-        <Link href={`/agent-select/${props.name}`}>
+        <Link href={`/${props.name}/`}>
             <View style={{width:"100%"}}>
                 <Image style={styles.image} source={mapImages[props.name]} />
-                <Text style={styles.title}>{props.name.toUpperCase()}</Text>
+                <Text style={[styles.title]}>{props.name.toUpperCase()}</Text>
             </View>
         </Link>
     );
 };
 
 const styles = StyleSheet.create({
-    
+
+    image: {
+        width: vw * 0.85,
+        height: vh * 0.235,
+        borderRadius: 25,
+        borderColor: 'white',
+        borderWidth: 1,
+    },
+
     title: {
-        fontFamily: 'Valorant',
         marginTop: vh * 0.01,
-        fontSize: vh * 0.025,
-        fontWeight: 'bold',
+        fontSize: vh * 0.030,
+        fontWeight: '600',
+        fontFamily: 'Valorant',
         color: 'white',
         textAlign: 'center',
-        textShadowColor: 'white',
+        textShadowColor: 'grey',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 25,
     },
 
-    image: {
-        width: vw * 0.77,
-        // width: 300,
-        height: vh * 0.18,
-    }
 });
