@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground, Platform, Button } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Platform, Modal, Pressable } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
@@ -6,9 +6,9 @@ import React, { useEffect, useState } from 'react';
 import videoLinks from '@/utils/links';
 import SingleVideo from '@/components/SingleVideo';
 import { VideoLink } from '@/interfaces/VideoLink';
-import { useSQLiteContext } from 'expo-sqlite/next'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
+import { ModalAnimation } from '@/types/AnimationType';
 
 const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : Platform.OS == 'android' ? 
                 'ca-app-pub-8591491079519050/6514583321' : 'ca-app-pub-8591491079519050/1629922300'
@@ -21,8 +21,11 @@ const bg = require('@/assets/images/wallpaper.jpg');
 
 const Videos: React.FC = () => {
     const { map, agent, utility } = useLocalSearchParams();
+    const [modalVisible, setModalVisible] = useState(false);
     const [arr, setArr] = useState(videoLinks[map as string][agent as string][utility as string])
     const [loaded, setLoaded] = useState(false);
+    const [modalAnimation, setModalAnimation] = useState<ModalAnimation>('fade');
+    const [modalText, setModalText] = useState('Lineup Saved!');
     const [timesClicked, setTimesClicked] = useState<number>(0);
     const [totalTimesClicked, setTotalTimesClicked] = useState<number>(0);
     const [filters, setFilters] = useState({
@@ -102,6 +105,24 @@ const Videos: React.FC = () => {
     
     return (
         <ImageBackground source={bg} style={{width: '100%', height: '100%'}}>
+
+            <Modal
+                animationType={modalAnimation}
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+                >
+                    <Pressable
+                        style={[styles.pressable]}
+                        onPress={() => setModalVisible(false)}>
+                        <View style={{}}>
+                            <Text style={styles.modalText}>{modalText}</Text>
+                        </View>
+                    </Pressable>
+            </Modal>
+
             <View style={{backgroundColor: 'rgba(0, 0, 0, 0.70)', height: "100%", width: '100%'}}>
                 <View style={styles.container}>
                     <Text style={styles.text}>{utility} Lineups on {map}</Text>
@@ -121,9 +142,10 @@ const Videos: React.FC = () => {
                         const title = words.slice(2).join(" ");
                         return (
                         <View key={item.id} style={styles.videoContainer}>
-                            <SingleVideo key={item.id} title={title} videoId={item.id}
-                                map={map as string} agent={agent as string} saved={false}
-                                increment={incrementTimesClicked} utility={utility as string}
+                            <SingleVideo key={item.id} 
+                                title={title} videoId={item.id} map={map as string} 
+                                agent={agent as string} saved={false} increment={incrementTimesClicked}
+                                utility={utility as string} setModalVisible={setModalVisible} setModalText={setModalText}
                             />
                         </View>
                         )
@@ -166,6 +188,25 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: vw * 0.03,
         padding: vw * 0.025,
+    },
+
+    pressable: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        padding: 10,
+        elevation: 2,
+        marginTop: "auto",
+        marginBottom: 10,
+        marginLeft: 50,
+        marginRight: 50,
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        height: vh * 0.05,
+        width: "auto",
+    },
+
+    modalText: {  
+        textAlign: 'center',
+        color: 'white',
     },
 
 });

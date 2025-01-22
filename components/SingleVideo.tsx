@@ -9,7 +9,7 @@ import { Modal } from 'react-native'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { Lineup } from '@/interfaces/Lineup'
 
-function SingleVideo({title, videoId, map, agent, utility, saved, increment, setLineups}: 
+function SingleVideo({title, videoId, map, agent, utility, saved, increment, setLineups, setModalVisible, setModalText}: 
     {
         title: string,
         videoId: string
@@ -19,10 +19,9 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment, set
         saved: boolean,
         increment?: () => void
         setLineups?: React.Dispatch<React.SetStateAction<Lineup[]>>
+        setModalText?: React.Dispatch<React.SetStateAction<string>>
+        setModalVisible?: React.Dispatch<React.SetStateAction<boolean>>
     }) {
-    const [modalVisible, setModalVisible] = useState(false);
-    const [modalAnimation, setModalAnimation] = useState<"slide" | "none" | "fade">('fade');
-    const [modalText, setModalText] = useState('Lineup Saved!');
 
     const db = useSQLiteContext();
 
@@ -69,21 +68,21 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment, set
             const after = await db.getAllAsync('SELECT * FROM test') // inspect the table again
             console.log(after)
             
-            setModalVisible(true);  
+            setModalVisible!(true);  
 
             
         } catch (error: any) {
             console.log(error.message);
             if (error.message.includes('UNIQUE constraint failed')) {
-                setModalText('Lineup already saved');
+                setModalText!('Lineup already saved');
             } else { 
-                setModalText('Error saving lineup');
+                setModalText!('Error saving lineup');
             }
-            setModalVisible(true);
+            setModalVisible!(true);
         } finally {
             setTimeout(() => {
-                setModalVisible(false);
-            }, 1750)
+                setModalVisible!(false);
+            }, 1250)
         }
     }
 
@@ -95,41 +94,13 @@ function SingleVideo({title, videoId, map, agent, utility, saved, increment, set
             console.log("deleted");
         } catch (error: any) {
             console.log(error.message);
-            setModalText("Error deleting lineup");
-            setModalVisible(true);
-            setTimeout(() => {
-                setModalVisible(false);
-            }, 1750)
-        } 
-
-          
+        }
 
     }
 
     return (
 
-        <View key={title} style={styles.videoWrapper} onTouchEnd={() => {
-            if (modalVisible) {
-                setModalVisible(!modalVisible);
-            }
-        }}>
-            
-            <Modal
-                animationType={modalAnimation}
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-                >
-                    <Pressable
-                        style={[styles.pressable]}
-                        onPress={() => setModalVisible(false)}>
-                        <View style={{}}>
-                            <Text style={styles.modalText}>{modalText}</Text>
-                        </View>
-                    </Pressable>
-            </Modal>
+        <View style={styles.videoWrapper}>
 
             <View style={styles.ytvideo}>
                 <Pressable onPress={increment}>
@@ -187,8 +158,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
-    modalText: {
-        
+    
+    modalText: {  
         textAlign: 'center',
         color: 'white',
     },
