@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, ScrollView, ImageBackground, Platform, Modal, Pressable } from 'react-native';
-import { useLocalSearchParams } from 'expo-router';
+import { View, Text, StyleSheet, ScrollView, ImageBackground, Platform, Modal, Pressable, DimensionValue } from 'react-native';
+import { Link, useLocalSearchParams } from 'expo-router';
 import {vh, vw} from '@/utils/dimensions';
 import Checkbox from '@/components/Checkbox';
 import React, { useEffect, useState } from 'react';
@@ -9,6 +9,8 @@ import { VideoLink } from '@/interfaces/VideoLink';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AdEventType, InterstitialAd, TestIds } from 'react-native-google-mobile-ads';
 import { ModalAnimation } from '@/types/AnimationType';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import Footer from '@/components/Footer';
 
 const adUnitId = __DEV__ ? TestIds.INTERSTITIAL : Platform.OS == 'android' ? 
                 'ca-app-pub-8591491079519050/6514583321' : 'ca-app-pub-8591491079519050/1629922300'
@@ -124,6 +126,7 @@ const Videos: React.FC = () => {
             </Modal>
 
             <View style={{backgroundColor: 'rgba(0, 0, 0, 0.70)', height: "100%", width: '100%'}}>
+
                 <View style={styles.container}>
                     <Text style={styles.text}>{utility} Lineups on {map}</Text>
                     <View style={styles.checkboxesContainer}>
@@ -151,7 +154,9 @@ const Videos: React.FC = () => {
                         )
                     })}
                 </ScrollView>
-                {/* <Button color='black' title='Show ad' onPress={incrementTimesClicked}></Button> */}
+                
+                <Footer />
+
             </View>
         </ImageBackground>
     );
