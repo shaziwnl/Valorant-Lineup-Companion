@@ -1,0 +1,1 @@
+export type ModalAnimation = 'slide' | 'fade' | 'none';
