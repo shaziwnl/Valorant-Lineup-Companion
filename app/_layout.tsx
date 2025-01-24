@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { SQLiteProvider } from 'expo-sqlite/next';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native';
+import "../global.css"
 
 export {
   // Catch any errors thrown by the Layout component.

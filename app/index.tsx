@@ -13,7 +13,7 @@ export default function TabOneScreen() {
       <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
         <View style={{width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.3)'}}>
           <View style={styles.container1}>
-            <Text style={[{fontFamily: "Valorant", fontSize: 35, color: "white", marginBottom: 25}, styles.welcome]}>Welcome Agent</Text>
+            <Text className='mb-10' style={[{fontFamily: "Valorant", fontSize: 35, color: "white"}, styles.welcome]}>Welcome Agent</Text>
             <CustomButton title="Browse Lineups" variant='default' href={`/mapselect/`}/>          
             <CustomButton title="Saved Lineups"  variant='default' href={`/savedlineups/`}/>
             <CustomButton title="Spike Timer" variant='default' href={`/timer/`}/>          
