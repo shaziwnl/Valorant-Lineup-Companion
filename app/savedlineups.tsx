@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSQLiteContext } from 'expo-sqlite/next';
 import SingleVideo from '@/components/SingleVideo';
 import { Lineup } from '@/interfaces/Lineup';
+import Footer from '@/components/Footer';
 
 const image = require('@/assets/images/wallpaper.jpg');
 
@@ -28,8 +29,9 @@ export default function SavedLineups() {
     }, []);
 
   return (
-    
+
       <ImageBackground source={image} style={{width: '100%', height: '100%'}}>
+
         <View style={{width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)'}}>
             <ScrollView>        
                     {lineups.map((item) => {
@@ -41,9 +43,15 @@ export default function SavedLineups() {
                         )
                     })}
             </ScrollView>
+
+            <Footer />
         </View>
+
+        
+
       </ImageBackground>
-    
+
+
   );
 }
 
