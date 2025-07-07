@@ -44,9 +44,8 @@
 
 <!-- ABOUT -->
 ## About
-Valorant Lineup Companion is the most up-to-date Valorant lineup app for all maps and agents
-Available on both IOS and Android, this handy tool ensures that you never play a match with a forgotten lineup and always remain the X-Factor for your team
-We are currently in development, we plan to launch by 1st March 2025. Your patience and understanding are highly appreciated
+Valorant Lineup Companion was supposed to be the most up-to-date Valorant lineup app for all maps and agents
+Work on this project is indefinitely paused
 
 
 ### Technologies Used
