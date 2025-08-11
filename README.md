@@ -45,7 +45,7 @@
 <!-- ABOUT -->
 ## About
 Valorant Lineup Companion was supposed to be the most up-to-date Valorant lineup app for all maps and agents
-Work on this project is indefinitely paused
+Work on this project is indefinitely paused due to reprioritisation
 
 
 ### Technologies Used
